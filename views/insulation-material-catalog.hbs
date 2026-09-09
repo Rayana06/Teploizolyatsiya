@@ -1,0 +1,28 @@
+{{> insulation-head}}
+<main class="insulation-viewport">
+  <section class="insulation-scroll insulation-catalog" aria-label="Каталог изоляционных материалов">
+    {{> insulation-brand}}
+    <h1>Каталог материалов</h1>
+    <form class="insulation-price-filter" action="/insulation-materials/catalog" method="get">
+      <label for="insulationMaxPrice">МАКСИМАЛЬНАЯ ЦЕНА ЗА 1 М²</label>
+      <div class="insulation-filter-row">
+        <div class="insulation-price-input"><input id="insulationMaxPrice" name="insulationMaxPrice" type="number" min="0" step="0.01" placeholder="Например, 1300" value="{{insulationFilterValue}}"><span aria-hidden="true">₽</span></div>
+        <button class="insulation-action" type="submit">Подобрать</button>
+      </div>
+    </form>
+    {{#if insulationFilterError}}<p class="insulation-filter-error" role="alert">{{insulationFilterError}}</p>{{/if}}
+    <p class="insulation-count">Найдено материалов: {{insulationMaterialCount}}</p>
+    <div class="insulation-grid">
+      {{#each insulationMaterials}}
+      <a class="insulation-card" data-insulation-id="{{insulationId}}" data-insulation-video-url="{{insulationVideoUrl}}" href="/insulation-materials/feed/{{insulationId}}" aria-label="{{insulationName}}, {{insulationThicknessMm}} мм, {{insulationPriceLabel}} рублей за квадратный метр">
+        <div class="insulation-card-picture"><img class="insulation-card-image" src="{{insulationImageUrl}}" alt="{{insulationName}}" width="174" height="72"><span class="insulation-kind">{{insulationType}}</span></div>
+        <div class="insulation-card-copy"><p class="insulation-maker">{{insulationManufacturer}} · {{insulationSku}}</p><h2>{{insulationName}}</h2><p class="insulation-application">{{insulationApplication}}</p><p class="insulation-thickness">Толщина: {{insulationThicknessMm}} мм</p><div class="insulation-card-bottom"><strong>{{insulationPriceLabel}} ₽/м²</strong><span class="insulation-likes" aria-label="{{insulationLikeCount}} лайков">♡ {{insulationLikeCount}}</span></div></div>
+      </a>
+      {{else}}
+      <p class="insulation-empty">{{#unless insulationFilterError}}Материалов по этой цене не найдено.{{/unless}} <a href="/insulation-materials/catalog">Показать все материалы</a></p>
+      {{/each}}
+    </div>
+  </section>
+  {{> insulation-tabs}}
+</main>
+</body></html>

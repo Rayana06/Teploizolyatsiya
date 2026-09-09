@@ -1,0 +1,31 @@
+{
+  "name": "teploshchit-insulation-backend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node --env-file-if-exists=.env dist/main.js",
+    "start:dev": "npm run build && npm start",
+    "test": "npm run build && node --test test/insulation-http.test.cjs",
+    "media:build": "node scripts/build-insulation-media.cjs",
+    "minio:up": "docker compose up -d",
+    "minio:seed": "node --env-file=.env scripts/seed-insulation-minio.cjs"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.0",
+    "@nestjs/core": "^11.1.0",
+    "@nestjs/platform-express": "^11.1.0",
+    "hbs": "^4.2.0",
+    "minio": "^8.0.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/hbs": "^4.0.5",
+    "@types/node": "^24.0.0",
+    "ffmpeg-static": "^5.2.0",
+    "sharp": "^0.34.0",
+    "typescript": "^5.9.0"
+  }
+}

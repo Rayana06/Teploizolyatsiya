@@ -1,0 +1,22 @@
+{{> insulation-head}}
+<main class="insulation-viewport insulation-feed" data-insulation-id="{{insulation.insulationId}}">
+  <section class="insulation-video-stage" aria-label="Лента изоляционных материалов">
+    <video class="insulation-video" autoplay muted playsinline disablepictureinpicture disableremoteplayback controlslist="nofullscreen noremoteplayback nodownload" preload="auto" poster="{{insulation.insulationPosterUrl}}" aria-label="Вертикальное видео материала {{insulation.insulationName}}"><source src="{{insulation.insulationVideoUrl}}" type="video/mp4"></video>
+    <div class="insulation-video-shade" aria-hidden="true"></div>
+    {{> insulation-brand}}
+    <span class="insulation-feed-label">Лента материалов</span>
+    <figure class="insulation-feed-photo"><img src="{{insulation.insulationImageUrl}}" alt="{{insulation.insulationName}}" width="76" height="60"><figcaption>{{insulation.insulationName}}</figcaption></figure>
+    <div class="insulation-feed-copy">
+      <span class="insulation-kind">{{insulation.insulationType}}</span>
+      <h1>{{insulation.insulationName}}</h1>
+      <p class="insulation-feed-maker">{{insulation.insulationManufacturer}}</p>
+      <p>Толщина: {{insulation.insulationThicknessMm}} мм</p>
+      <strong class="insulation-feed-price">{{insulation.insulationPriceLabel}} ₽/м²</strong>
+      <details class="insulation-description"><summary><span class="insulation-brief">{{insulation.insulationBrief}}</span><span class="insulation-more">Больше</span><span class="insulation-less">Меньше</span></summary><p>{{insulation.insulationDescription}}</p><p>Артикул: {{insulation.insulationSku}}</p><a href="{{insulation.insulationSourceUrl}}" target="_blank" rel="noopener noreferrer">Материал на сайте продавца ↗</a></details>
+    </div>
+    <div class="insulation-feed-likes" aria-label="{{insulation.insulationLikeCount}} лайков"><span aria-hidden="true">♡</span><strong>{{insulation.insulationLikeCount}}</strong></div>
+    <a class="insulation-action insulation-next" href="/insulation-materials/feed/{{insulation.insulationId}}?next=true">Следующий материал →</a>
+  </section>
+  {{> insulation-tabs}}
+</main>
+</body></html>

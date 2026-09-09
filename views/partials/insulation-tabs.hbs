@@ -1,0 +1,5 @@
+<nav class="insulation-tabs" aria-label="Разделы материалов">
+  <a class="insulation-tab {{#if insulationFeedActive}}insulation-tab-active{{/if}}" href="/insulation-materials/feed" {{#if insulationFeedActive}}aria-current="page"{{/if}}><span aria-hidden="true">▶</span>Материал</a>
+  <a class="insulation-tab {{#if insulationDraftActive}}insulation-tab-active{{/if}}" href="/insulation-materials/draft" {{#if insulationDraftActive}}aria-current="page"{{/if}}><span aria-hidden="true">✎</span>Черновик</a>
+  <a class="insulation-tab {{#if insulationCatalogActive}}insulation-tab-active{{/if}}" href="/insulation-materials/catalog" {{#if insulationCatalogActive}}aria-current="page"{{/if}}><span class="insulation-grid-icon" aria-hidden="true">▦</span>Каталог</a>
+</nav>

@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.env
+*.log
+media/source/
+media/generated/*-portrait.png
+screenshots/

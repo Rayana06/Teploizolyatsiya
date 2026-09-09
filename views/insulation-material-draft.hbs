@@ -1,0 +1,24 @@
+{{> insulation-head}}
+<main class="insulation-viewport">
+  <section class="insulation-scroll insulation-draft" aria-label="Черновик изоляционного материала">
+    <header class="insulation-draft-header">{{> insulation-brand}}<span class="insulation-draft-status">ЧЕРНОВИК</span></header><h1>Черновик материала</h1>
+    <div class="insulation-draft-panel">
+      <div class="insulation-draft-title"><h2>{{insulation.insulationName}}</h2><span class="insulation-likes">♡ {{insulation.insulationLikeCount}}</span></div>
+      {{!-- Fields deliberately outside a form: no submission or saving in Lab 1. --}}
+      <div class="insulation-draft-fields">
+        <div class="insulation-media-row">
+          <label class="insulation-field">ИЗОБРАЖЕНИЕ<img class="insulation-draft-image" src="{{insulation.insulationImageUrl}}" alt="{{insulation.insulationName}}"><input name="insulationImageKey" value="{{insulation.insulationImageKey}}" autocomplete="off" title="{{insulation.insulationImageKey}}"></label>
+          <div class="insulation-field"><label for="insulationVideoKey">ВИДЕО</label><video class="insulation-draft-inline-video" controls muted playsinline disablepictureinpicture disableremoteplayback controlslist="nofullscreen noremoteplayback nodownload" preload="auto" poster="{{insulation.insulationPosterUrl}}"><source src="{{insulation.insulationVideoUrl}}" type="video/mp4"></video><input id="insulationVideoKey" name="insulationVideoKey" value="{{insulation.insulationVideoKey}}" autocomplete="off" title="{{insulation.insulationVideoKey}}"></div>
+        </div>
+        <div class="insulation-name-row"><label class="insulation-field">НАЗВАНИЕ МАТЕРИАЛА<input name="insulationName" value="{{insulation.insulationName}}"></label><label class="insulation-field">ТИП УТЕПЛИТЕЛЯ<input name="insulationType" value="{{insulation.insulationType}}"></label></div>
+        <label class="insulation-field">ПРОИЗВОДИТЕЛЬ<input name="insulationManufacturer" value="{{insulation.insulationManufacturer}}"></label>
+        <div class="insulation-number-row"><label class="insulation-field">ДЛИНА ПЛИТЫ, мм<input name="insulationLengthMm" type="number" min="1" value="{{insulation.insulationLengthMm}}"></label><label class="insulation-field">ТОЛЩИНА, мм<input name="insulationThicknessMm" type="number" min="1" value="{{insulation.insulationThicknessMm}}"></label></div>
+        <div class="insulation-number-row"><label class="insulation-field">ШИРИНА ПЛИТЫ, мм<input name="insulationWidthMm" type="number" min="1" value="{{insulation.insulationWidthMm}}"></label><label class="insulation-field">ЦЕНА, ₽/м²<input name="insulationPriceRubM2" type="number" min="0" step="0.01" value="{{insulation.insulationPriceRubM2}}"></label></div>
+        <label class="insulation-field">ОПИСАНИЕ МАТЕРИАЛА<textarea name="insulationDescription" rows="3">{{insulation.insulationDescription}}</textarea></label>
+      </div>
+      <p class="insulation-draft-note">Изменения в полях не сохраняются</p>
+    </div>
+  </section>
+  {{> insulation-tabs}}
+</main>
+</body></html>
