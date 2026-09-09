@@ -31,5 +31,5 @@ html{overscroll-behavior-y:none}
 .insulation-video::-webkit-media-controls,.insulation-video::-webkit-media-controls-enclosure,.insulation-video::-webkit-media-controls-panel,.insulation-video::-webkit-media-controls-overlay-play-button{display:none!important}/* Video is encoded at exactly twice the 390x772 feed area: no bars or cropping. */
 .insulation-video{object-fit:cover;object-position:center}
 
-.insulation-draft-inline-video{pointer-events:auto}.insulation-draft-note{display:flex;align-items:center;justify-content:center;text-align:center;min-height:36px}
+.insulation-draft-inline-video{pointer-events:auto;object-fit:cover;object-position:center 10%;background:#fff}.insulation-draft-note{display:flex;align-items:center;justify-content:center;text-align:center;min-height:36px}
 .insulation-card-picture,.insulation-card-image{height:82px}.insulation-application{font-size:9px;line-height:12px;color:#666;margin:4px 0;white-space:nowrap}.insulation-card-bottom strong{font-size:14px}.insulation-card .insulation-kind{font-size:8px;padding:3px 5px;top:3px;left:4px}.insulation-draft{padding-bottom:4px}
