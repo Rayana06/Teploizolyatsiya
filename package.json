@@ -6,10 +6,10 @@
     "build": "tsc -p tsconfig.json",
     "start": "node --env-file-if-exists=.env dist/main.js",
     "start:dev": "npm run build && npm start",
-    "test": "npm run build && node --test test/insulation-http.test.cjs",
-    "media:build": "node scripts/build-insulation-media.cjs",
+    "test": "npm run build && node --experimental-strip-types --test test/insulation-http.test.ts",
+    "media:build": "node --experimental-strip-types scripts/build-insulation-media.ts",
     "minio:up": "docker compose up -d",
-    "minio:seed": "node --env-file=.env scripts/seed-insulation-minio.cjs"
+    "minio:seed": "node --experimental-strip-types --env-file=.env scripts/seed-insulation-minio.ts"
   },
   "dependencies": {
     "@nestjs/common": "^11.1.0",
