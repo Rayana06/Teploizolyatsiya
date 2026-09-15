@@ -69,8 +69,6 @@ html{overscroll-behavior-y:none}
 .insulation-draft-fields{gap:8px}
 
 /* Final lecturer review: visible HTML-only scale and compact feed/draft controls. */
-.insulation-range-marks{display:flex;justify-content:space-between;padding:0 13px;margin-top:3px;color:var(--insulation-gray);font-size:7px}
-.insulation-range-scale strong{font-size:8px}
 .insulation-feed-copy{bottom:32px}
 .insulation-feed-copy>.insulation-kind{margin-bottom:10px}
 .insulation-feed-copy h1{margin-bottom:10px}

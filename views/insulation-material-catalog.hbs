@@ -7,10 +7,8 @@
       <label for="insulationMaxPrice">МАКСИМАЛЬНАЯ ЦЕНА ТЕПЛОИЗОЛЯЦИОННОГО МАТЕРИАЛА ЗА 1 М²</label>
       <div class="insulation-filter-row">
         <div class="insulation-price-range">
-          <input id="insulationMaxPrice" name="insulationMaxPrice" type="range" min="0" max="1600" step="0.01" value="{{insulationFilterValue}}" list="insulationPriceMarks" aria-describedby="insulationSelectedPrice">
-          <datalist id="insulationPriceMarks"><option value="229.63" label="230"></option><option value="322.22" label="322"></option><option value="1038.60" label="1039"></option><option value="1570.15" label="1570"></option></datalist>
-          <div class="insulation-range-scale"><span>0 ₽/м²</span><strong id="insulationSelectedPrice">Выбрано: {{insulationFilterValue}} ₽/м²</strong><span>1600 ₽/м²</span></div>
-          <div class="insulation-range-marks" aria-hidden="true"><span>230</span><span>322</span><span>1039</span><span>1570</span></div>
+          <input id="insulationMaxPrice" name="insulationMaxPrice" type="range" min="229.63" max="1570.15" step="0.01" value="{{insulationFilterValue}}">
+          <div class="insulation-range-scale"><span>229,63 ₽/м²</span><span>1 570,15 ₽/м²</span></div>
         </div>
         <button class="insulation-action" type="submit">Подобрать</button>
       </div>

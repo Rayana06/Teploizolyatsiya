@@ -45,12 +45,13 @@ export class InsulationController {
   @Get('catalog')
   @Render('insulation-material-catalog')
   getInsulationCatalog(@Query('insulationMaxPrice') insulationMaxPrice?: string) {
-    const insulationRangeMaximum = 1600;
+    const insulationRangeMinimum = 229.63;
+    const insulationRangeMaximum = 1570.15;
     const insulationFilterSource = typeof insulationMaxPrice === 'string' ? insulationMaxPrice.trim() : '';
     const insulationFilterValid = insulationMaxPrice === undefined || insulationFilterSource === '' || /^\d+(?:[.,]\d{1,2})?$/.test(insulationFilterSource);
     const parsedInsulationPrice = insulationFilterSource === '' ? insulationRangeMaximum : Number(insulationFilterSource.replace(',', '.'));
-    const insulationFilterError = !insulationFilterValid || Number.isNaN(parsedInsulationPrice) || parsedInsulationPrice < 0 || parsedInsulationPrice > insulationRangeMaximum
-      ? 'Выберите максимальную цену от 0 до 1600 ₽/м².'
+    const insulationFilterError = !insulationFilterValid || Number.isNaN(parsedInsulationPrice) || parsedInsulationPrice < insulationRangeMinimum || parsedInsulationPrice > insulationRangeMaximum
+      ? 'Выберите максимальную цену от 229,63 до 1 570,15 ₽/м².'
       : '';
     const insulationPriceLimit = insulationFilterError ? 0 : parsedInsulationPrice;
     const insulationFilterValue = insulationFilterError ? String(insulationRangeMaximum) : String(parsedInsulationPrice);
