@@ -33,3 +33,55 @@ html{overscroll-behavior-y:none}
 
 .insulation-draft-inline-video{pointer-events:auto;object-fit:cover;object-position:center 10%;background:#fff}.insulation-draft-note{display:flex;align-items:center;justify-content:center;text-align:center;min-height:36px}
 .insulation-card-picture,.insulation-card-image{height:82px}.insulation-application{font-size:9px;line-height:12px;color:#666;margin:4px 0;white-space:nowrap}.insulation-card-bottom strong{font-size:14px}.insulation-card .insulation-kind{font-size:8px;padding:3px 5px;top:3px;left:4px}.insulation-draft{padding-bottom:4px}
+
+/* Lab 1 final layout: HTML range, side feed tools, sequential draft media. */
+.insulation-price-filter>label{font-size:9px;line-height:12px;margin-bottom:6px}
+.insulation-filter-row{grid-template-columns:246px 94px;align-items:start}
+.insulation-price-range{min-width:0}
+.insulation-price-range input[type="range"]{display:block;width:100%;height:24px;margin:0;accent-color:var(--insulation-red);cursor:pointer;background:transparent}
+.insulation-price-range input[type="range"]::-webkit-slider-runnable-track{height:5px;border-radius:4px;background:#b8b8b8}
+.insulation-price-range input[type="range"]::-webkit-slider-thumb{margin-top:-5px;width:15px;height:15px;border-radius:50%;background:var(--insulation-red)}
+.insulation-range-scale{display:flex;align-items:center;justify-content:space-between;gap:4px;margin-top:2px;color:var(--insulation-gray);font-size:8px;white-space:nowrap}
+.insulation-range-scale strong{color:var(--insulation-red);font-size:9px}
+.insulation-filter-row button{height:42px;margin-top:1px}
+
+.insulation-feed-copy{right:92px;bottom:24px;max-height:440px}
+.insulation-feed-copy h1,.insulation-feed-maker{max-width:270px}
+.insulation-description{max-width:260px}
+.insulation-brief{max-width:250px}
+.insulation-feed-tools{position:absolute;right:16px;bottom:28px;z-index:2;display:flex;flex-direction:column;align-items:center;gap:14px;width:62px}
+.insulation-feed-tools>.insulation-kind{max-width:70px;padding:5px 6px;font-size:8px;line-height:10px;text-align:center;white-space:nowrap}
+.insulation-feed-likes{position:static;text-align:center;font-size:13px;display:flex;flex-direction:column;align-items:center;gap:7px}
+.insulation-feed-likes>span{width:44px;height:44px;border-radius:50%;background:#202020cc;display:grid;place-items:center;font-size:27px}
+.insulation-next{position:static;width:62px;height:88px;padding:8px 4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;text-align:center;font-size:10px;line-height:12px}
+.insulation-next strong{font-size:24px;line-height:24px}
+.insulation-video-shade{pointer-events:none;box-shadow:none;background:linear-gradient(180deg,#0003 0%,#0001 35%,#000c 68%,#000 100%);background-color:transparent;transition:background-color 350ms ease-in-out}
+.insulation-video-stage:hover .insulation-video-shade{box-shadow:none;background-color:rgba(0,0,0,.14)}
+.insulation-video-stage>.insulation-brand,.insulation-feed-label,.insulation-feed-copy,.insulation-feed-tools{z-index:2}
+
+.insulation-media-stack{display:flex;flex-direction:column;gap:9px}
+.insulation-media-picker{display:grid;grid-template-columns:105px minmax(0,1fr);grid-template-rows:auto auto 1fr;gap:5px 10px;padding:8px;border:1px solid #dedede;border-radius:4px;background:#fff}
+.insulation-media-title{grid-column:1/-1;color:var(--insulation-red);font-size:10px;font-weight:700}
+.insulation-media-picker .insulation-draft-image,.insulation-media-picker .insulation-draft-inline-video{grid-column:1;grid-row:2/4;width:105px;height:76px;padding:2px;object-fit:contain;background:#f4f4f4;border-radius:4px}
+.insulation-file-label{grid-column:2;grid-row:2;color:var(--insulation-red);font-size:10px;font-weight:700;align-self:end}
+.insulation-file-input{grid-column:2;grid-row:3;width:100%;min-width:0;height:31px;border:1px solid #b8b8b8;border-radius:4px;background:#fff;color:var(--insulation-gray);font-size:8px;padding:2px}
+.insulation-file-input::file-selector-button{height:25px;margin-right:5px;border:0;border-radius:3px;background:var(--insulation-red);color:#fff;font-size:9px;font-weight:700;cursor:pointer}
+.insulation-draft-fields{gap:8px}
+
+/* Final lecturer review: visible HTML-only scale and compact feed/draft controls. */
+.insulation-range-marks{display:flex;justify-content:space-between;padding:0 13px;margin-top:3px;color:var(--insulation-gray);font-size:7px}
+.insulation-range-scale strong{font-size:8px}
+.insulation-feed-copy{bottom:32px}
+.insulation-feed-copy>.insulation-kind{margin-bottom:10px}
+.insulation-feed-copy h1{margin-bottom:10px}
+.insulation-feed-price{margin:0 0 12px}
+.insulation-brief{display:-webkit-box;max-width:250px;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;line-height:18px;min-height:36px}
+.insulation-description[open]{max-height:250px;overflow-y:auto}
+.insulation-next{width:58px;height:auto;padding:0;display:flex;flex-direction:column;align-items:center;gap:6px;color:#fff;text-decoration:none;background:transparent;font-size:9px;font-weight:700;text-align:center}
+.insulation-next strong{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--insulation-red);color:#fff;font-size:25px;line-height:1;transition:background-color 250ms ease-in-out}
+.insulation-next:hover strong,.insulation-next:focus-visible strong{background:var(--insulation-hover)}
+.insulation-media-picker{display:flex;flex-direction:column;gap:7px;padding:8px}
+.insulation-media-picker .insulation-draft-image,.insulation-media-picker .insulation-draft-inline-video{width:100%;height:112px;padding:2px;object-fit:contain;background:#f4f4f4;border-radius:4px}
+.insulation-file-label{display:grid;place-items:center;width:100%;height:32px;border-radius:4px;background:var(--insulation-red);color:#fff;font-size:10px;font-weight:700;cursor:pointer}
+.insulation-file-label:hover{background:var(--insulation-hover)}
+.insulation-file-input{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}

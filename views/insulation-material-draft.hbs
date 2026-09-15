@@ -6,9 +6,19 @@
       <div class="insulation-draft-title"><h2>{{insulation.insulationName}}</h2><span class="insulation-likes">♡ {{insulation.insulationLikeCount}}</span></div>
       {{!-- Fields deliberately outside a form: no submission or saving in Lab 1. --}}
       <div class="insulation-draft-fields">
-        <div class="insulation-media-row">
-          <label class="insulation-field">ИЗОБРАЖЕНИЕ<img class="insulation-draft-image" src="{{insulation.insulationImageUrl}}" alt="{{insulation.insulationName}}"><input name="insulationImageKey" value="{{insulation.insulationImageKey}}" autocomplete="off" title="{{insulation.insulationImageKey}}"></label>
-          <div class="insulation-field"><label for="insulationVideoKey">ВИДЕО</label><video class="insulation-draft-inline-video" controls muted playsinline disablepictureinpicture disableremoteplayback controlslist="nofullscreen noremoteplayback nodownload" preload="auto"><source src="{{insulation.insulationVideoUrl}}" type="video/mp4"></video><input id="insulationVideoKey" name="insulationVideoKey" value="{{insulation.insulationVideoKey}}" autocomplete="off" title="{{insulation.insulationVideoKey}}"></div>
+        <div class="insulation-media-stack">
+          <section class="insulation-media-picker" aria-labelledby="insulationImageLabel">
+            <span id="insulationImageLabel" class="insulation-media-title">ИЗОБРАЖЕНИЕ</span>
+            <img class="insulation-draft-image" src="{{insulation.insulationImageUrl}}" alt="{{insulation.insulationName}}">
+            <label class="insulation-file-label" for="insulationImageFile">Выбрать файл</label>
+            <input id="insulationImageFile" class="insulation-file-input" name="insulationImageFile" type="file" accept="image/*">
+          </section>
+          <section class="insulation-media-picker" aria-labelledby="insulationVideoLabel">
+            <span id="insulationVideoLabel" class="insulation-media-title">ВИДЕО</span>
+            <video class="insulation-draft-inline-video" controls muted playsinline disablepictureinpicture disableremoteplayback controlslist="nofullscreen noremoteplayback nodownload" preload="metadata"><source src="{{insulation.insulationVideoUrl}}" type="video/mp4"></video>
+            <label class="insulation-file-label" for="insulationVideoFile">Выбрать файл</label>
+            <input id="insulationVideoFile" class="insulation-file-input" name="insulationVideoFile" type="file" accept="video/*">
+          </section>
         </div>
         <div class="insulation-name-row"><label class="insulation-field">НАЗВАНИЕ МАТЕРИАЛА<input name="insulationName" value="{{insulation.insulationName}}"></label><label class="insulation-field">ТИП УТЕПЛИТЕЛЯ<input name="insulationType" value="{{insulation.insulationType}}"></label></div>
         <label class="insulation-field">ПРОИЗВОДИТЕЛЬ<input name="insulationManufacturer" value="{{insulation.insulationManufacturer}}"></label>
@@ -16,7 +26,6 @@
         <div class="insulation-number-row"><label class="insulation-field">ШИРИНА ПЛИТЫ, мм<input name="insulationWidthMm" type="number" min="1" value="{{insulation.insulationWidthMm}}"></label><label class="insulation-field">ЦЕНА, ₽/м²<input name="insulationPriceRubM2" type="number" min="0" step="0.01" value="{{insulation.insulationPriceRubM2}}"></label></div>
         <label class="insulation-field">ОПИСАНИЕ МАТЕРИАЛА<textarea name="insulationDescription" rows="3">{{insulation.insulationDescription}}</textarea></label>
       </div>
-      <p class="insulation-draft-note">Изменения в полях не сохраняются</p>
     </div>
   </section>
   {{> insulation-tabs}}

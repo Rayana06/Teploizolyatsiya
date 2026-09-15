@@ -45,10 +45,15 @@ export class InsulationController {
   @Get('catalog')
   @Render('insulation-material-catalog')
   getInsulationCatalog(@Query('insulationMaxPrice') insulationMaxPrice?: string) {
-    const insulationFilterValue = typeof insulationMaxPrice === 'string' ? insulationMaxPrice : '';
-    const insulationFilterValid = insulationMaxPrice === undefined || (typeof insulationMaxPrice === 'string' && (insulationMaxPrice.trim() === '' || /^\d+(?:[.,]\d{1,2})?$/.test(insulationMaxPrice.trim())));
-    const insulationPriceLimit = insulationFilterValue.trim() === '' ? Infinity : Number(insulationFilterValue.trim().replace(',', '.'));
-    const insulationFilterError = !insulationFilterValid || Number.isNaN(insulationPriceLimit) ? 'Введите неотрицательную цену числом, например 1300.' : '';
+    const insulationRangeMaximum = 1600;
+    const insulationFilterSource = typeof insulationMaxPrice === 'string' ? insulationMaxPrice.trim() : '';
+    const insulationFilterValid = insulationMaxPrice === undefined || insulationFilterSource === '' || /^\d+(?:[.,]\d{1,2})?$/.test(insulationFilterSource);
+    const parsedInsulationPrice = insulationFilterSource === '' ? insulationRangeMaximum : Number(insulationFilterSource.replace(',', '.'));
+    const insulationFilterError = !insulationFilterValid || Number.isNaN(parsedInsulationPrice) || parsedInsulationPrice < 0 || parsedInsulationPrice > insulationRangeMaximum
+      ? 'Выберите максимальную цену от 0 до 1600 ₽/м².'
+      : '';
+    const insulationPriceLimit = insulationFilterError ? 0 : parsedInsulationPrice;
+    const insulationFilterValue = insulationFilterError ? String(insulationRangeMaximum) : String(parsedInsulationPrice);
     const foundInsulation = insulationFilterError ? [] : insulationMaterials.filter(material => material.insulationStatus === 'published' && material.insulationPriceRubM2 <= insulationPriceLimit);
     return {
       insulationMaterials: foundInsulation.map(material => this.presentInsulation(material)),
