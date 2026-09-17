@@ -1,32 +1,34 @@
 {{> insulation-head}}
 <main class="insulation-viewport">
-  <section class="insulation-scroll insulation-draft" aria-label="Черновик изоляционного материала">
-    <header class="insulation-draft-header">{{> insulation-brand}}<span class="insulation-draft-status">ЧЕРНОВИК</span></header><h1>Черновик материала</h1>
-    <div class="insulation-draft-panel">
+  <section class="insulation-scroll insulation-draft" aria-label="Добавление изоляционного материала">
+    <header class="insulation-draft-header">{{> insulation-brand}}<span class="insulation-draft-status">{{#if insulationHasDraft}}ЧЕРНОВИК{{else}}НОВАЯ УСЛУГА{{/if}}</span></header>
+    {{#if insulationHasDraft}}
+    <h1>Публикация материала</h1>
+    <form class="insulation-draft-panel" action="/insulation-materials/publish" method="post">
       <div class="insulation-draft-title"><h2>{{insulation.insulationName}}</h2><span class="insulation-likes">♡ {{insulation.insulationLikeCount}}</span></div>
-      {{!-- Fields deliberately outside a form: no submission or saving in Lab 1. --}}
       <div class="insulation-draft-fields">
         <div class="insulation-media-stack">
-          <section class="insulation-media-picker" aria-labelledby="insulationImageLabel">
-            <span id="insulationImageLabel" class="insulation-media-title">ИЗОБРАЖЕНИЕ</span>
-            <img class="insulation-draft-image" src="{{insulation.insulationImageUrl}}" alt="{{insulation.insulationName}}">
-            <label class="insulation-file-label" for="insulationImageFile">Выбрать файл</label>
-            <input id="insulationImageFile" class="insulation-file-input" name="insulationImageFile" type="file" accept="image/*">
-          </section>
-          <section class="insulation-media-picker" aria-labelledby="insulationVideoLabel">
-            <span id="insulationVideoLabel" class="insulation-media-title">ВИДЕО</span>
-            <video class="insulation-draft-inline-video" controls muted playsinline disablepictureinpicture disableremoteplayback controlslist="nofullscreen noremoteplayback nodownload" preload="metadata"><source src="{{insulation.insulationVideoUrl}}" type="video/mp4"></video>
-            <label class="insulation-file-label" for="insulationVideoFile">Выбрать файл</label>
-            <input id="insulationVideoFile" class="insulation-file-input" name="insulationVideoFile" type="file" accept="video/*">
-          </section>
+          <section class="insulation-media-picker" aria-labelledby="insulationImageLabel"><span id="insulationImageLabel" class="insulation-media-title">ИЗОБРАЖЕНИЕ</span><object class="insulation-draft-image" data="{{insulation.insulationImageUrl}}" type="image/jpeg" aria-label="{{insulation.insulationName}}"><img src="{{insulation.insulationDefaultImageUrl}}" alt="{{insulation.insulationName}}"></object><label class="insulation-file-label" for="insulationImageFile">Выбрать новое фото</label><input id="insulationImageFile" class="insulation-file-input" type="file" accept="image/*"></section>
+          <section class="insulation-media-picker" aria-labelledby="insulationVideoLabel"><span id="insulationVideoLabel" class="insulation-media-title">ВИДЕО</span><video class="insulation-draft-inline-video" controls muted playsinline preload="metadata"><source src="{{insulation.insulationVideoUrl}}" type="video/mp4"><source src="{{insulation.insulationDefaultVideoUrl}}" type="video/mp4"></video><label class="insulation-file-label" for="insulationVideoFile">Выбрать новое видео</label><input id="insulationVideoFile" class="insulation-file-input" type="file" accept="video/*"></section>
         </div>
-        <div class="insulation-name-row"><label class="insulation-field">НАЗВАНИЕ МАТЕРИАЛА<input name="insulationName" value="{{insulation.insulationName}}"></label><label class="insulation-field">ТИП УТЕПЛИТЕЛЯ<input name="insulationType" value="{{insulation.insulationType}}"></label></div>
-        <label class="insulation-field">ПРОИЗВОДИТЕЛЬ<input name="insulationManufacturer" value="{{insulation.insulationManufacturer}}"></label>
-        <div class="insulation-number-row"><label class="insulation-field">ДЛИНА ПЛИТЫ, мм<input name="insulationLengthMm" type="number" min="1" value="{{insulation.insulationLengthMm}}"></label><label class="insulation-field">ТОЛЩИНА, мм<input name="insulationThicknessMm" type="number" min="1" value="{{insulation.insulationThicknessMm}}"></label></div>
-        <div class="insulation-number-row"><label class="insulation-field">ШИРИНА ПЛИТЫ, мм<input name="insulationWidthMm" type="number" min="1" value="{{insulation.insulationWidthMm}}"></label><label class="insulation-field">ЦЕНА, ₽/м²<input name="insulationPriceRubM2" type="number" min="0" step="0.01" value="{{insulation.insulationPriceRubM2}}"></label></div>
-        <label class="insulation-field">ОПИСАНИЕ МАТЕРИАЛА<textarea name="insulationDescription" rows="3">{{insulation.insulationDescription}}</textarea></label>
+        <label class="insulation-field">КРАТКАЯ ИНФОРМАЦИЯ<textarea name="insulationDescription" maxlength="300" required>{{insulation.insulationDescription}}</textarea></label>
+        <div class="insulation-number-row"><label class="insulation-field">ТИП УТЕПЛИТЕЛЯ<input name="insulationType" maxlength="50" value="{{insulation.insulationType}}" required></label><label class="insulation-field">ТОЛЩИНА, ММ<input name="insulationThicknessMm" type="number" min="1" max="1000" value="{{insulation.insulationThicknessMm}}" required></label></div>
+        <div class="insulation-number-row"><label class="insulation-field">ПРОИЗВОДИТЕЛЬ<input name="insulationManufacturer" maxlength="100" value="{{insulation.insulationManufacturer}}"></label><label class="insulation-field">ЦЕНА, ₽/М²<input name="insulationPriceRubM2" type="number" min="0" step="0.01" value="{{insulation.insulationPriceRubM2}}"></label></div>
+        <label class="insulation-field">ОБЛАСТЬ ПРИМЕНЕНИЯ<input name="insulationApplication" maxlength="120" value="{{insulation.insulationApplication}}"></label><label class="insulation-field">АРТИКУЛ<input name="insulationSku" maxlength="40" value="{{insulation.insulationSku}}"></label>
+        <p class="insulation-draft-note">Новые медиафайлы в лабораторной №2 не отправляются и не сохраняются.</p><button class="insulation-action insulation-submit" type="submit">Опубликовать</button>
       </div>
-    </div>
+    </form>
+    {{else}}
+    <h1>Добавление материала</h1>
+    <form class="insulation-draft-panel" action="/insulation-materials/draft" method="post">
+      <div class="insulation-draft-fields">
+        <label class="insulation-field">НАЗВАНИЕ МАТЕРИАЛА<input name="insulationName" maxlength="120" required></label>
+        <section class="insulation-media-picker"><span class="insulation-media-title">ФОТО</span><img class="insulation-draft-image" src="/insulation-assets/default-media/default-insulation.jpg" alt="Фото по умолчанию"><label class="insulation-file-label" for="newImageFile">Выбрать фото</label><input id="newImageFile" class="insulation-file-input" type="file" accept="image/*"></section>
+        <section class="insulation-media-picker"><span class="insulation-media-title">ВИДЕО</span><video class="insulation-draft-inline-video" controls muted playsinline><source src="/insulation-assets/default-media/default-insulation.mp4" type="video/mp4"></video><label class="insulation-file-label" for="newVideoFile">Выбрать видео</label><input id="newVideoFile" class="insulation-file-input" type="file" accept="video/*"></section>
+        <p class="insulation-draft-note">Выбранные файлы используются только для интерфейса и не передаются на сервер.</p><button class="insulation-action insulation-submit" type="submit">Далее</button>
+      </div>
+    </form>
+    {{/if}}
   </section>
   {{> insulation-tabs}}
 </main>

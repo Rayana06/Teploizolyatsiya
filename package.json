@@ -7,6 +7,7 @@
     "start": "node --env-file-if-exists=.env dist/main.js",
     "start:dev": "npm run build && npm start",
     "test": "npm run build && node --experimental-strip-types --test test/insulation-http.test.ts",
+    "diagram:build": "node scripts/build-lab2-staruml.mjs",
     "media:build": "node --experimental-strip-types scripts/build-insulation-media.ts",
     "minio:up": "docker compose up -d",
     "minio:seed": "node --experimental-strip-types --env-file=.env scripts/seed-insulation-minio.ts"
@@ -15,10 +16,13 @@
     "@nestjs/common": "^11.1.0",
     "@nestjs/core": "^11.1.0",
     "@nestjs/platform-express": "^11.1.0",
+    "@nestjs/typeorm": "^11.0.0",
     "hbs": "^4.2.0",
     "minio": "^8.0.0",
+    "pg": "^8.16.3",
     "reflect-metadata": "^0.2.2",
-    "rxjs": "^7.8.2"
+    "rxjs": "^7.8.2",
+    "typeorm": "^0.3.26"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",

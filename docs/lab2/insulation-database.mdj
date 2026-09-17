@@ -1,0 +1,974 @@
+{
+  "_type": "Project",
+  "_id": "LAB2-project-0001",
+  "name": "Теплощит — лабораторная №2",
+  "ownedElements": [
+    {
+      "_type": "ERDDataModel",
+      "_id": "LAB2-model-0002",
+      "_parent": {
+        "$ref": "LAB2-project-0001"
+      },
+      "name": "PostgreSQL Data Model",
+      "ownedElements": [
+        {
+          "_type": "ERDDiagram",
+          "_id": "LAB2-diagram-0003",
+          "_parent": {
+            "$ref": "LAB2-model-0002"
+          },
+          "name": "Теплощит — база данных",
+          "defaultDiagram": true,
+          "ownedViews": [
+            {
+              "_type": "ERDEntityView",
+              "_id": "LAB2-entity-view-0031",
+              "_parent": {
+                "$ref": "LAB2-diagram-0003"
+              },
+              "model": {
+                "$ref": "LAB2-entity-0004"
+              },
+              "subViews": [
+                {
+                  "_type": "LabelView",
+                  "_id": "LAB2-label-0032",
+                  "_parent": {
+                    "$ref": "LAB2-entity-view-0031"
+                  },
+                  "font": "Arial;13;1",
+                  "left": 45,
+                  "top": 84,
+                  "width": 270,
+                  "height": 18,
+                  "text": "users"
+                },
+                {
+                  "_type": "ERDColumnCompartmentView",
+                  "_id": "LAB2-compartment-0033",
+                  "_parent": {
+                    "$ref": "LAB2-entity-view-0031"
+                  },
+                  "model": {
+                    "$ref": "LAB2-entity-0004"
+                  },
+                  "subViews": [
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0034",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0033"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0005"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 45,
+                      "top": 107,
+                      "width": 270,
+                      "height": 18
+                    },
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0035",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0033"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0006"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 45,
+                      "top": 125,
+                      "width": 270,
+                      "height": 18
+                    },
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0036",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0033"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0007"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 45,
+                      "top": 143,
+                      "width": 270,
+                      "height": 18
+                    },
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0037",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0033"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0008"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 45,
+                      "top": 161,
+                      "width": 270,
+                      "height": 18
+                    }
+                  ],
+                  "font": "Arial;12;0",
+                  "left": 40,
+                  "top": 103,
+                  "width": 280,
+                  "height": 80
+                }
+              ],
+              "font": "Arial;12;0",
+              "left": 40,
+              "top": 80,
+              "width": 280,
+              "height": 103,
+              "nameLabel": {
+                "$ref": "LAB2-label-0032"
+              },
+              "columnCompartment": {
+                "$ref": "LAB2-compartment-0033"
+              }
+            },
+            {
+              "_type": "ERDEntityView",
+              "_id": "LAB2-entity-view-0038",
+              "_parent": {
+                "$ref": "LAB2-diagram-0003"
+              },
+              "model": {
+                "$ref": "LAB2-entity-0009"
+              },
+              "subViews": [
+                {
+                  "_type": "LabelView",
+                  "_id": "LAB2-label-0039",
+                  "_parent": {
+                    "$ref": "LAB2-entity-view-0038"
+                  },
+                  "font": "Arial;13;1",
+                  "left": 395,
+                  "top": 39,
+                  "width": 370,
+                  "height": 18,
+                  "text": "insulation_materials"
+                },
+                {
+                  "_type": "ERDColumnCompartmentView",
+                  "_id": "LAB2-compartment-0040",
+                  "_parent": {
+                    "$ref": "LAB2-entity-view-0038"
+                  },
+                  "model": {
+                    "$ref": "LAB2-entity-0009"
+                  },
+                  "subViews": [
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0041",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0040"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0010"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 395,
+                      "top": 62,
+                      "width": 370,
+                      "height": 18
+                    },
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0042",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0040"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0011"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 395,
+                      "top": 80,
+                      "width": 370,
+                      "height": 18
+                    },
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0043",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0040"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0012"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 395,
+                      "top": 98,
+                      "width": 370,
+                      "height": 18
+                    },
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0044",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0040"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0013"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 395,
+                      "top": 116,
+                      "width": 370,
+                      "height": 18
+                    },
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0045",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0040"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0014"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 395,
+                      "top": 134,
+                      "width": 370,
+                      "height": 18
+                    },
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0046",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0040"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0015"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 395,
+                      "top": 152,
+                      "width": 370,
+                      "height": 18
+                    },
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0047",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0040"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0016"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 395,
+                      "top": 170,
+                      "width": 370,
+                      "height": 18
+                    },
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0048",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0040"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0017"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 395,
+                      "top": 188,
+                      "width": 370,
+                      "height": 18
+                    },
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0049",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0040"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0018"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 395,
+                      "top": 206,
+                      "width": 370,
+                      "height": 18
+                    },
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0050",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0040"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0019"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 395,
+                      "top": 224,
+                      "width": 370,
+                      "height": 18
+                    },
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0051",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0040"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0020"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 395,
+                      "top": 242,
+                      "width": 370,
+                      "height": 18
+                    },
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0052",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0040"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0021"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 395,
+                      "top": 260,
+                      "width": 370,
+                      "height": 18
+                    },
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0053",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0040"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0022"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 395,
+                      "top": 278,
+                      "width": 370,
+                      "height": 18
+                    },
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0054",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0040"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0023"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 395,
+                      "top": 296,
+                      "width": 370,
+                      "height": 18
+                    },
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0055",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0040"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0024"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 395,
+                      "top": 314,
+                      "width": 370,
+                      "height": 18
+                    },
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0056",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0040"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0025"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 395,
+                      "top": 332,
+                      "width": 370,
+                      "height": 18
+                    }
+                  ],
+                  "font": "Arial;12;0",
+                  "left": 390,
+                  "top": 58,
+                  "width": 380,
+                  "height": 296
+                }
+              ],
+              "font": "Arial;12;0",
+              "left": 390,
+              "top": 35,
+              "width": 380,
+              "height": 319,
+              "nameLabel": {
+                "$ref": "LAB2-label-0039"
+              },
+              "columnCompartment": {
+                "$ref": "LAB2-compartment-0040"
+              }
+            },
+            {
+              "_type": "ERDEntityView",
+              "_id": "LAB2-entity-view-0057",
+              "_parent": {
+                "$ref": "LAB2-diagram-0003"
+              },
+              "model": {
+                "$ref": "LAB2-entity-0026"
+              },
+              "subViews": [
+                {
+                  "_type": "LabelView",
+                  "_id": "LAB2-label-0058",
+                  "_parent": {
+                    "$ref": "LAB2-entity-view-0057"
+                  },
+                  "font": "Arial;13;1",
+                  "left": 45,
+                  "top": 354,
+                  "width": 310,
+                  "height": 18,
+                  "text": "insulation_material_likes"
+                },
+                {
+                  "_type": "ERDColumnCompartmentView",
+                  "_id": "LAB2-compartment-0059",
+                  "_parent": {
+                    "$ref": "LAB2-entity-view-0057"
+                  },
+                  "model": {
+                    "$ref": "LAB2-entity-0026"
+                  },
+                  "subViews": [
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0060",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0059"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0027"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 45,
+                      "top": 377,
+                      "width": 310,
+                      "height": 18
+                    },
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0061",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0059"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0028"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 45,
+                      "top": 395,
+                      "width": 310,
+                      "height": 18
+                    },
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0062",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0059"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0029"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 45,
+                      "top": 413,
+                      "width": 310,
+                      "height": 18
+                    },
+                    {
+                      "_type": "ERDColumnView",
+                      "_id": "LAB2-column-view-0063",
+                      "_parent": {
+                        "$ref": "LAB2-compartment-0059"
+                      },
+                      "model": {
+                        "$ref": "LAB2-column-0030"
+                      },
+                      "font": "Arial;12;0",
+                      "left": 45,
+                      "top": 431,
+                      "width": 310,
+                      "height": 18
+                    }
+                  ],
+                  "font": "Arial;12;0",
+                  "left": 40,
+                  "top": 373,
+                  "width": 320,
+                  "height": 80
+                }
+              ],
+              "font": "Arial;12;0",
+              "left": 40,
+              "top": 350,
+              "width": 320,
+              "height": 103,
+              "nameLabel": {
+                "$ref": "LAB2-label-0058"
+              },
+              "columnCompartment": {
+                "$ref": "LAB2-compartment-0059"
+              }
+            },
+            {
+              "_type": "ERDRelationshipView",
+              "_id": "LAB2-relationship-view-0067",
+              "_parent": {
+                "$ref": "LAB2-diagram-0003"
+              },
+              "model": {
+                "$ref": "LAB2-relationship-0064"
+              },
+              "font": "Arial;12;0",
+              "head": {
+                "$ref": "LAB2-entity-view-0031"
+              },
+              "tail": {
+                "$ref": "LAB2-entity-view-0038"
+              },
+              "lineStyle": 2,
+              "points": "390:145;320:145"
+            },
+            {
+              "_type": "ERDRelationshipView",
+              "_id": "LAB2-relationship-view-0071",
+              "_parent": {
+                "$ref": "LAB2-diagram-0003"
+              },
+              "model": {
+                "$ref": "LAB2-relationship-0068"
+              },
+              "font": "Arial;12;0",
+              "head": {
+                "$ref": "LAB2-entity-view-0031"
+              },
+              "tail": {
+                "$ref": "LAB2-entity-view-0057"
+              },
+              "lineStyle": 2,
+              "points": "200:350;200:175"
+            },
+            {
+              "_type": "ERDRelationshipView",
+              "_id": "LAB2-relationship-view-0075",
+              "_parent": {
+                "$ref": "LAB2-diagram-0003"
+              },
+              "model": {
+                "$ref": "LAB2-relationship-0072"
+              },
+              "font": "Arial;12;0",
+              "head": {
+                "$ref": "LAB2-entity-view-0038"
+              },
+              "tail": {
+                "$ref": "LAB2-entity-view-0057"
+              },
+              "lineStyle": 2,
+              "points": "360:420;580:420;580:354"
+            }
+          ]
+        },
+        {
+          "_type": "ERDEntity",
+          "_id": "LAB2-entity-0004",
+          "_parent": {
+            "$ref": "LAB2-model-0002"
+          },
+          "name": "users",
+          "columns": [
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0005",
+              "_parent": {
+                "$ref": "LAB2-entity-0004"
+              },
+              "name": "user_id",
+              "type": "INTEGER",
+              "length": 0,
+              "primaryKey": true
+            },
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0006",
+              "_parent": {
+                "$ref": "LAB2-entity-0004"
+              },
+              "name": "email",
+              "type": "VARCHAR",
+              "length": "254"
+            },
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0007",
+              "_parent": {
+                "$ref": "LAB2-entity-0004"
+              },
+              "name": "display_name",
+              "type": "VARCHAR",
+              "length": "100"
+            },
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0008",
+              "_parent": {
+                "$ref": "LAB2-entity-0004"
+              },
+              "name": "created_at",
+              "type": "TIMESTAMPTZ",
+              "length": 0
+            }
+          ]
+        },
+        {
+          "_type": "ERDEntity",
+          "_id": "LAB2-entity-0009",
+          "_parent": {
+            "$ref": "LAB2-model-0002"
+          },
+          "name": "insulation_materials",
+          "columns": [
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0010",
+              "_parent": {
+                "$ref": "LAB2-entity-0009"
+              },
+              "name": "insulation_material_id",
+              "type": "INTEGER",
+              "length": 0,
+              "primaryKey": true
+            },
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0011",
+              "_parent": {
+                "$ref": "LAB2-entity-0009"
+              },
+              "name": "name",
+              "type": "VARCHAR",
+              "length": "120"
+            },
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0012",
+              "_parent": {
+                "$ref": "LAB2-entity-0009"
+              },
+              "name": "short_description",
+              "type": "VARCHAR",
+              "length": "300"
+            },
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0013",
+              "_parent": {
+                "$ref": "LAB2-entity-0009"
+              },
+              "name": "status",
+              "type": "ENUM",
+              "length": "draft|published|deleted"
+            },
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0014",
+              "_parent": {
+                "$ref": "LAB2-entity-0009"
+              },
+              "name": "image_url",
+              "type": "VARCHAR",
+              "length": "500"
+            },
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0015",
+              "_parent": {
+                "$ref": "LAB2-entity-0009"
+              },
+              "name": "video_url",
+              "type": "VARCHAR",
+              "length": "500"
+            },
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0016",
+              "_parent": {
+                "$ref": "LAB2-entity-0009"
+              },
+              "name": "insulation_type",
+              "type": "VARCHAR",
+              "length": "50"
+            },
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0017",
+              "_parent": {
+                "$ref": "LAB2-entity-0009"
+              },
+              "name": "thickness_mm",
+              "type": "SMALLINT",
+              "length": 0
+            },
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0018",
+              "_parent": {
+                "$ref": "LAB2-entity-0009"
+              },
+              "name": "manufacturer",
+              "type": "VARCHAR",
+              "length": "100"
+            },
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0019",
+              "_parent": {
+                "$ref": "LAB2-entity-0009"
+              },
+              "name": "application_area",
+              "type": "VARCHAR",
+              "length": "120"
+            },
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0020",
+              "_parent": {
+                "$ref": "LAB2-entity-0009"
+              },
+              "name": "sku",
+              "type": "VARCHAR",
+              "length": "40"
+            },
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0021",
+              "_parent": {
+                "$ref": "LAB2-entity-0009"
+              },
+              "name": "price_rub_m2",
+              "type": "NUMERIC",
+              "length": "10,2"
+            },
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0022",
+              "_parent": {
+                "$ref": "LAB2-entity-0009"
+              },
+              "name": "source_url",
+              "type": "VARCHAR",
+              "length": "500"
+            },
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0023",
+              "_parent": {
+                "$ref": "LAB2-entity-0009"
+              },
+              "name": "created_at",
+              "type": "TIMESTAMPTZ",
+              "length": 0
+            },
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0024",
+              "_parent": {
+                "$ref": "LAB2-entity-0009"
+              },
+              "name": "published_at",
+              "type": "TIMESTAMPTZ",
+              "length": 0
+            },
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0025",
+              "_parent": {
+                "$ref": "LAB2-entity-0009"
+              },
+              "name": "creator_id",
+              "type": "INTEGER",
+              "length": 0,
+              "foreignKey": true
+            }
+          ],
+          "ownedElements": [
+            {
+              "_type": "ERDRelationship",
+              "_id": "LAB2-relationship-0064",
+              "_parent": {
+                "$ref": "LAB2-entity-0009"
+              },
+              "name": "created_by",
+              "end1": {
+                "_type": "ERDRelationshipEnd",
+                "_id": "LAB2-end-0065",
+                "_parent": {
+                  "$ref": "LAB2-relationship-0064"
+                },
+                "reference": {
+                  "$ref": "LAB2-entity-0009"
+                },
+                "cardinality": "0..*"
+              },
+              "end2": {
+                "_type": "ERDRelationshipEnd",
+                "_id": "LAB2-end-0066",
+                "_parent": {
+                  "$ref": "LAB2-relationship-0064"
+                },
+                "reference": {
+                  "$ref": "LAB2-entity-0004"
+                },
+                "cardinality": "1"
+              }
+            }
+          ]
+        },
+        {
+          "_type": "ERDEntity",
+          "_id": "LAB2-entity-0026",
+          "_parent": {
+            "$ref": "LAB2-model-0002"
+          },
+          "name": "insulation_material_likes",
+          "columns": [
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0027",
+              "_parent": {
+                "$ref": "LAB2-entity-0026"
+              },
+              "name": "insulation_material_like_id",
+              "type": "INTEGER",
+              "length": 0,
+              "primaryKey": true
+            },
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0028",
+              "_parent": {
+                "$ref": "LAB2-entity-0026"
+              },
+              "name": "user_id",
+              "type": "INTEGER",
+              "length": 0,
+              "foreignKey": true
+            },
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0029",
+              "_parent": {
+                "$ref": "LAB2-entity-0026"
+              },
+              "name": "insulation_material_id",
+              "type": "INTEGER",
+              "length": 0,
+              "foreignKey": true
+            },
+            {
+              "_type": "ERDColumn",
+              "_id": "LAB2-column-0030",
+              "_parent": {
+                "$ref": "LAB2-entity-0026"
+              },
+              "name": "created_at",
+              "type": "TIMESTAMPTZ",
+              "length": 0
+            }
+          ],
+          "ownedElements": [
+            {
+              "_type": "ERDRelationship",
+              "_id": "LAB2-relationship-0068",
+              "_parent": {
+                "$ref": "LAB2-entity-0026"
+              },
+              "name": "liked_by",
+              "end1": {
+                "_type": "ERDRelationshipEnd",
+                "_id": "LAB2-end-0069",
+                "_parent": {
+                  "$ref": "LAB2-relationship-0068"
+                },
+                "reference": {
+                  "$ref": "LAB2-entity-0026"
+                },
+                "cardinality": "0..*"
+              },
+              "end2": {
+                "_type": "ERDRelationshipEnd",
+                "_id": "LAB2-end-0070",
+                "_parent": {
+                  "$ref": "LAB2-relationship-0068"
+                },
+                "reference": {
+                  "$ref": "LAB2-entity-0004"
+                },
+                "cardinality": "1"
+              }
+            },
+            {
+              "_type": "ERDRelationship",
+              "_id": "LAB2-relationship-0072",
+              "_parent": {
+                "$ref": "LAB2-entity-0026"
+              },
+              "name": "belongs_to",
+              "end1": {
+                "_type": "ERDRelationshipEnd",
+                "_id": "LAB2-end-0073",
+                "_parent": {
+                  "$ref": "LAB2-relationship-0072"
+                },
+                "reference": {
+                  "$ref": "LAB2-entity-0026"
+                },
+                "cardinality": "0..*"
+              },
+              "end2": {
+                "_type": "ERDRelationshipEnd",
+                "_id": "LAB2-end-0074",
+                "_parent": {
+                  "$ref": "LAB2-relationship-0072"
+                },
+                "reference": {
+                  "$ref": "LAB2-entity-0009"
+                },
+                "cardinality": "1"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

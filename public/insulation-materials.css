@@ -83,3 +83,7 @@ html{overscroll-behavior-y:none}
 .insulation-file-label{display:grid;place-items:center;width:100%;height:32px;border-radius:4px;background:var(--insulation-red);color:#fff;font-size:10px;font-weight:700;cursor:pointer}
 .insulation-file-label:hover{background:var(--insulation-hover)}
 .insulation-file-input{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Lab 2: forms, publication and logical deletion. */
+.insulation-submit{width:100%;min-height:42px;border:0}.insulation-card{position:relative;height:197px}.insulation-card-link{display:block;height:177px;text-decoration:none}.insulation-delete-form{position:absolute;right:6px;bottom:4px}.insulation-delete-form button{border:0;background:transparent;color:var(--insulation-red);font-size:9px;font-weight:700;text-decoration:underline;cursor:pointer}.insulation-card:hover h2,.insulation-card:focus-within h2{color:var(--insulation-hover)}
+.insulation-card-image img,.insulation-draft-image img{display:block;width:100%;height:100%;object-fit:contain}

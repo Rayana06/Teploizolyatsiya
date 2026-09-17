@@ -17,10 +17,10 @@
     <p class="insulation-count">Найдено материалов: {{insulationMaterialCount}}</p>
     <div class="insulation-grid">
       {{#each insulationMaterials}}
-      <a class="insulation-card" data-insulation-id="{{insulationId}}" data-insulation-video-url="{{insulationVideoUrl}}" href="/insulation-materials/feed/{{insulationId}}" aria-label="{{insulationName}}, {{insulationThicknessMm}} мм, {{insulationPriceLabel}} рублей за квадратный метр">
-        <div class="insulation-card-picture"><img class="insulation-card-image" src="{{insulationImageUrl}}" alt="{{insulationName}}" width="174" height="72"><span class="insulation-kind">{{insulationType}}</span></div>
-        <div class="insulation-card-copy"><p class="insulation-maker">{{insulationManufacturer}} · {{insulationSku}}</p><h2>{{insulationName}}</h2><p class="insulation-application">{{insulationApplication}}</p><p class="insulation-thickness">Толщина: {{insulationThicknessMm}} мм</p><div class="insulation-card-bottom"><strong>{{insulationPriceLabel}} ₽/м²</strong><span class="insulation-likes" aria-label="{{insulationLikeCount}} лайков">♡ {{insulationLikeCount}}</span></div></div>
-      </a>
+      <article class="insulation-card" data-insulation-id="{{insulationId}}">
+        <a class="insulation-card-link" href="/insulation-materials/feed/{{insulationId}}" aria-label="{{insulationName}}, {{insulationThicknessMm}} мм, {{insulationPriceLabel}} рублей за квадратный метр"><div class="insulation-card-picture"><object class="insulation-card-image" data="{{insulationImageUrl}}" type="image/jpeg" aria-label="{{insulationName}}"><img src="{{insulationDefaultImageUrl}}" alt="{{insulationName}}" width="174" height="72"></object><span class="insulation-kind">{{insulationType}}</span></div><div class="insulation-card-copy"><p class="insulation-maker">{{insulationManufacturer}} · {{insulationSku}}</p><h2>{{insulationName}}</h2><p class="insulation-application">{{insulationApplication}}</p><p class="insulation-thickness">Толщина: {{insulationThicknessMm}} мм</p><div class="insulation-card-bottom"><strong>{{insulationPriceLabel}} ₽/м²</strong><span class="insulation-likes" aria-label="{{insulationLikeCount}} лайков">♡ {{insulationLikeCount}}</span></div></div></a>
+        <form class="insulation-delete-form" action="/insulation-materials/{{insulationId}}/delete" method="post"><button type="submit" aria-label="Логически удалить {{insulationName}}">Удалить</button></form>
+      </article>
       {{else}}
       <p class="insulation-empty">{{#unless insulationFilterError}}Материалов по этой цене не найдено.{{/unless}} <a href="/insulation-materials/catalog">Показать все материалы</a></p>
       {{/each}}

@@ -1,14 +1,14 @@
 {{> insulation-head}}
 <main class="insulation-viewport insulation-feed" data-insulation-id="{{insulation.insulationId}}">
   <section class="insulation-video-stage" aria-label="Лента изоляционных материалов">
-    <video class="insulation-video" autoplay muted playsinline disablepictureinpicture disableremoteplayback controlslist="nofullscreen noremoteplayback nodownload" preload="auto" poster="{{insulation.insulationPosterUrl}}" aria-label="Вертикальное видео материала {{insulation.insulationName}}"><source src="{{insulation.insulationVideoUrl}}" type="video/mp4"></video>
+    <video class="insulation-video" autoplay muted playsinline disablepictureinpicture disableremoteplayback controlslist="nofullscreen noremoteplayback nodownload" preload="auto" poster="{{insulation.insulationPosterUrl}}" aria-label="Вертикальное видео материала {{insulation.insulationName}}"><source src="{{insulation.insulationVideoUrl}}" type="video/mp4"><source src="{{insulation.insulationDefaultVideoUrl}}" type="video/mp4"></video>
     <div class="insulation-video-shade" aria-hidden="true"></div>
     {{> insulation-brand}}
     <span class="insulation-feed-label">Лента материалов</span>
     <div class="insulation-feed-copy">
       <h1>{{insulation.insulationName}}</h1>
       <strong class="insulation-feed-price">{{insulation.insulationPriceLabel}} ₽/м²</strong>
-      <details class="insulation-description"><summary><span class="insulation-brief">{{insulation.insulationBrief}}</span><span class="insulation-more">Больше</span><span class="insulation-less">Меньше</span></summary><p><strong>Производитель:</strong> {{insulation.insulationManufacturer}}</p><p><strong>Толщина:</strong> {{insulation.insulationThicknessMm}} мм</p><p>{{insulation.insulationDescription}}</p><p><strong>Артикул:</strong> {{insulation.insulationSku}}</p><a href="{{insulation.insulationSourceUrl}}" target="_blank" rel="noopener noreferrer">Материал на сайте продавца ↗</a></details>
+      <details class="insulation-description"><summary><span class="insulation-brief">{{insulation.insulationBrief}}</span><span class="insulation-more">Больше</span><span class="insulation-less">Меньше</span></summary><p><strong>Производитель:</strong> {{insulation.insulationManufacturer}}</p><p><strong>Тип утеплителя:</strong> {{insulation.insulationType}}</p><p><strong>Толщина:</strong> {{insulation.insulationThicknessMm}} мм</p><p>{{insulation.insulationDescription}}</p><p><strong>Артикул:</strong> {{insulation.insulationSku}}</p>{{#if insulation.insulationSourceUrl}}<a href="{{insulation.insulationSourceUrl}}" target="_blank" rel="noopener noreferrer">Материал на сайте продавца ↗</a>{{/if}}</details>
     </div>
     <aside class="insulation-feed-tools" aria-label="Действия с материалом">
       <span class="insulation-kind">{{insulation.insulationType}}</span>
