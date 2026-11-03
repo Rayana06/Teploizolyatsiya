@@ -1,26 +1,4 @@
-# Лабораторная работа №5 — SPA «Теплощит»
-
-Базовое одностраничное приложение на React + TypeScript для гостевого просмотра услуг по подбору теплоизоляционных материалов. Проект создан Vite, интерфейс построен на React-Bootstrap. Redux и Context не используются.
-
-> В ЛР5 карточки получают содержимое **только** из локальной коллекции `src/data/materials.ts`. Запросы к бэкенду намеренно не выполняются: это соответствует специальному требованию задания о mock-объектах, которое уточняет общую формулировку «подключить к веб-сервису».
-
-## Запуск
-
-Требуется Node.js 20 или новее.
-
-```bash
-npm install
-npm run dev
-```
-
-Приложение откроется по адресу `http://localhost:5175`.
-
-Проверки перед показом:
-
-```bash
-npm run lint
-npm run build
-```
+# Лабораторная работа №5 
 
 ## Страницы приложения
 
@@ -79,17 +57,6 @@ Props неизменяемы: дочерние компоненты вызыва
 | `useParams` | `MaterialDetailsPage.tsx` | чтение `materialId` из URL |
 | `useNavigate` | `MaterialDetailsPage.tsx` | возврат на предыдущую страницу |
 
-## Порядок показа и скриншотов
-
-1. Лента `/` с mock-карточками.
-2. Плитка `/catalog` без фильтра.
-3. Страница `/materials/1`.
-4. Карточка `THERM FACADE`: `imageUrl: null`, видна подпись «изображение по умолчанию».
-5. Карточка `LOGICPIR СХМ/СХМ`: оба URL равны `null`, показаны стандартные изображение и видео.
-6. `CatalogFilters.tsx`: интерфейс props и поля формы.
-7. `CatalogPage.tsx`: передача props и фильтрация mock-массива.
-8. `CatalogPage.tsx` и `FeedPage.tsx`: `useState`, `useMemo`, `useEffect`.
-9. `MaterialMedia.tsx` и `MaterialDetailsPage.tsx`: `useState`, `useEffect`, `useRef`, `useParams`, `useNavigate`.
 
 ## Структура
 
@@ -106,5 +73,3 @@ public/
 ├── default-media/   локальные fallback-файлы
 └── products/        локальные медиа mock-услуг
 ```
-
-Расчёт аппаратных требований: [HARDWARE_CALCULATION.md](./HARDWARE_CALCULATION.md) и готовый одностраничный документ Word [«ЛР5 — расчет аппаратных требований.docx»](../output/docx/ЛР5%20—%20расчет%20аппаратных%20требований.docx). PDF оставлен как дополнительная экспортная копия. Краткие ответы для защиты: [DEFENSE.md](./DEFENSE.md).
