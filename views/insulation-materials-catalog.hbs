@@ -1,0 +1,43 @@
+{{> insulation-materials-head}}
+<main class="insulation-materials-viewport">
+  <section class="insulation-materials-scroll insulation-materials-catalog" aria-label="Каталог теплоизоляционных материалов">
+    {{> insulation-materials-brand}}
+    <h1>Каталог материалов</h1>
+    <form class="insulation-materials-filter" action="/insulation-materials/catalog" method="get">
+      <label for="insulationMaterialsMaxThickness">Максимальная толщина теплоизоляционного материала</label>
+      <div>
+        <div class="insulation-materials-range">
+          <input id="insulationMaterialsMaxThickness" name="insulationMaterialsMaxThickness" type="range" min="1" max="1000" value="{{insulationMaterialsFilterValue}}">
+          <div class="insulation-materials-range-scale"><span>1 мм</span><strong>{{insulationMaterialsFilterValue}} мм</strong><span>1000 мм</span></div>
+        </div>
+        <button class="insulation-materials-button" type="submit">Подобрать</button>
+      </div>
+    </form>
+    {{#if insulationMaterialsFilterError}}<p class="insulation-materials-error" role="alert">{{insulationMaterialsFilterError}}</p>{{/if}}
+    <p class="insulation-materials-count">Найдено: {{insulationMaterialsCount}}</p>
+    <div class="insulation-materials-grid">
+      {{#each insulationMaterials}}
+      <article class="insulation-materials-card" data-insulation-material-id="{{insulationMaterialId}}">
+        <a class="insulation-materials-card-link" href="/insulation-materials/feed/{{insulationMaterialId}}">
+          <div class="insulation-materials-card-picture">
+            <object data="{{insulationMaterialImageUrl}}" type="image/jpeg" aria-label="{{insulationMaterialName}}"><img src="{{insulationMaterialDefaultImageUrl}}" alt="{{insulationMaterialName}}"></object>
+            <span class="insulation-materials-kind">{{insulationMaterialType}}</span>
+          </div>
+          <div class="insulation-materials-card-copy">
+            <h2>{{insulationMaterialName}}</h2>
+            <p>Толщина: {{insulationMaterialThicknessMm}} мм</p>
+            <span class="insulation-materials-likes" aria-label="{{insulationMaterialLikeCount}} лайков">♡ {{insulationMaterialLikeCount}}</span>
+          </div>
+        </a>
+        <form action="/insulation-materials/{{insulationMaterialId}}/delete" method="post">
+          <button class="insulation-materials-button insulation-materials-delete" type="submit">Удалить</button>
+        </form>
+      </article>
+      {{else}}
+      <p class="insulation-materials-empty">Материалы не найдены.</p>
+      {{/each}}
+    </div>
+  </section>
+  {{> insulation-materials-tabs}}
+</main>
+</body></html>

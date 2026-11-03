@@ -1,0 +1,3624 @@
+{
+  "_type": "Project",
+  "_id": "LAB4_PROJECT",
+  "name": "Теплощит — лабораторная работа №4",
+  "ownedElements": [
+    {
+      "_type": "UMLModel",
+      "_id": "LAB4_MODEL",
+      "_parent": {
+        "$ref": "LAB4_PROJECT"
+      },
+      "name": "Теплощит — SPA backend",
+      "ownedElements": [
+        {
+          "_type": "UMLClass",
+          "_id": "LAB4_CLASS_SPA",
+          "_parent": {
+            "$ref": "LAB4_MODEL"
+          },
+          "name": "SPAClient",
+          "stereotype": "boundary",
+          "operations": []
+        },
+        {
+          "_type": "UMLClass",
+          "_id": "LAB4_CLASS_USERS_API",
+          "_parent": {
+            "$ref": "LAB4_MODEL"
+          },
+          "name": "UsersAPI",
+          "stereotype": "domain /api/users",
+          "operations": [
+            {
+              "_type": "UMLOperation",
+              "_id": "LAB4_OP_REGISTER",
+              "_parent": {
+                "$ref": "LAB4_CLASS_USERS_API"
+              },
+              "name": "register",
+              "stereotype": "POST /api/users/register",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_REGISTER_P1",
+                  "_parent": {
+                    "$ref": "LAB4_OP_REGISTER"
+                  },
+                  "name": "email",
+                  "type": "string"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_REGISTER_P2",
+                  "_parent": {
+                    "$ref": "LAB4_OP_REGISTER"
+                  },
+                  "name": "displayName",
+                  "type": "string"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_REGISTER_P3",
+                  "_parent": {
+                    "$ref": "LAB4_OP_REGISTER"
+                  },
+                  "name": "password",
+                  "type": "string"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_REGISTER_RETURN",
+                  "_parent": {
+                    "$ref": "LAB4_OP_REGISTER"
+                  },
+                  "type": "user",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "LAB4_OP_AUTHENTICATE",
+              "_parent": {
+                "$ref": "LAB4_CLASS_USERS_API"
+              },
+              "name": "authenticate",
+              "stereotype": "POST /api/users/authenticate",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_AUTHENTICATE_P1",
+                  "_parent": {
+                    "$ref": "LAB4_OP_AUTHENTICATE"
+                  },
+                  "name": "email",
+                  "type": "string"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_AUTHENTICATE_P2",
+                  "_parent": {
+                    "$ref": "LAB4_OP_AUTHENTICATE"
+                  },
+                  "name": "password",
+                  "type": "string"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_AUTHENTICATE_RETURN",
+                  "_parent": {
+                    "$ref": "LAB4_OP_AUTHENTICATE"
+                  },
+                  "type": "user + Set-Cookie",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "LAB4_OP_LOGOUT",
+              "_parent": {
+                "$ref": "LAB4_CLASS_USERS_API"
+              },
+              "name": "logout",
+              "stereotype": "POST /api/users/logout",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_LOGOUT_RETURN",
+                  "_parent": {
+                    "$ref": "LAB4_OP_LOGOUT"
+                  },
+                  "type": "ok",
+                  "direction": "return"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "UMLClass",
+          "_id": "LAB4_CLASS_MATERIALS_API",
+          "_parent": {
+            "$ref": "LAB4_MODEL"
+          },
+          "name": "InsulationMaterialsAPI",
+          "stereotype": "domain /api/insulation-materials",
+          "operations": [
+            {
+              "_type": "UMLOperation",
+              "_id": "LAB4_OP_LIST",
+              "_parent": {
+                "$ref": "LAB4_CLASS_MATERIALS_API"
+              },
+              "name": "list",
+              "stereotype": "GET /api/insulation-materials",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_LIST_P1",
+                  "_parent": {
+                    "$ref": "LAB4_OP_LIST"
+                  },
+                  "name": "maxThicknessMm?",
+                  "type": "number"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_LIST_P2",
+                  "_parent": {
+                    "$ref": "LAB4_OP_LIST"
+                  },
+                  "name": "insulationType?",
+                  "type": "string"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_LIST_P3",
+                  "_parent": {
+                    "$ref": "LAB4_OP_LIST"
+                  },
+                  "name": "search?",
+                  "type": "string"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_LIST_RETURN",
+                  "_parent": {
+                    "$ref": "LAB4_OP_LIST"
+                  },
+                  "type": "items + count",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "LAB4_OP_CREATE",
+              "_parent": {
+                "$ref": "LAB4_CLASS_MATERIALS_API"
+              },
+              "name": "create",
+              "stereotype": "POST /api/insulation-materials",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_CREATE_P1",
+                  "_parent": {
+                    "$ref": "LAB4_OP_CREATE"
+                  },
+                  "name": "fields",
+                  "type": "multipart"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_CREATE_P2",
+                  "_parent": {
+                    "$ref": "LAB4_OP_CREATE"
+                  },
+                  "name": "image",
+                  "type": "file"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_CREATE_P3",
+                  "_parent": {
+                    "$ref": "LAB4_OP_CREATE"
+                  },
+                  "name": "video",
+                  "type": "file"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_CREATE_RETURN",
+                  "_parent": {
+                    "$ref": "LAB4_OP_CREATE"
+                  },
+                  "type": "draft",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "LAB4_OP_DRAFT",
+              "_parent": {
+                "$ref": "LAB4_CLASS_MATERIALS_API"
+              },
+              "name": "draft",
+              "stereotype": "GET /api/insulation-materials/draft",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_DRAFT_RETURN",
+                  "_parent": {
+                    "$ref": "LAB4_OP_DRAFT"
+                  },
+                  "type": "draft fields",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "LAB4_OP_PUBLISH",
+              "_parent": {
+                "$ref": "LAB4_CLASS_MATERIALS_API"
+              },
+              "name": "publish",
+              "stereotype": "PUT /api/insulation-materials/{id}/publish",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_PUBLISH_P1",
+                  "_parent": {
+                    "$ref": "LAB4_OP_PUBLISH"
+                  },
+                  "name": "id",
+                  "type": "number"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_PUBLISH_RETURN",
+                  "_parent": {
+                    "$ref": "LAB4_OP_PUBLISH"
+                  },
+                  "type": "published service",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "LAB4_OP_FEEDSTART",
+              "_parent": {
+                "$ref": "LAB4_CLASS_MATERIALS_API"
+              },
+              "name": "feed",
+              "stereotype": "GET /api/insulation-materials/feed",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_FEEDSTART_RETURN",
+                  "_parent": {
+                    "$ref": "LAB4_OP_FEEDSTART"
+                  },
+                  "type": "feed item",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "LAB4_OP_FEEDNEXT",
+              "_parent": {
+                "$ref": "LAB4_CLASS_MATERIALS_API"
+              },
+              "name": "feed",
+              "stereotype": "GET /api/insulation-materials/feed/{id}?next=true",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_FEEDNEXT_P1",
+                  "_parent": {
+                    "$ref": "LAB4_OP_FEEDNEXT"
+                  },
+                  "name": "id",
+                  "type": "number"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_FEEDNEXT_P2",
+                  "_parent": {
+                    "$ref": "LAB4_OP_FEEDNEXT"
+                  },
+                  "name": "next",
+                  "type": "boolean"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_FEEDNEXT_RETURN",
+                  "_parent": {
+                    "$ref": "LAB4_OP_FEEDNEXT"
+                  },
+                  "type": "next feed item",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "LAB4_OP_SETLIKE",
+              "_parent": {
+                "$ref": "LAB4_CLASS_MATERIALS_API"
+              },
+              "name": "setLike",
+              "stereotype": "POST /api/insulation-materials/{id}/like",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_SETLIKE_P1",
+                  "_parent": {
+                    "$ref": "LAB4_OP_SETLIKE"
+                  },
+                  "name": "id",
+                  "type": "number"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_SETLIKE_P2",
+                  "_parent": {
+                    "$ref": "LAB4_OP_SETLIKE"
+                  },
+                  "name": "liked",
+                  "type": "boolean"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_SETLIKE_RETURN",
+                  "_parent": {
+                    "$ref": "LAB4_OP_SETLIKE"
+                  },
+                  "type": "liked + likesCount",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "LAB4_OP_SOFTDELETE",
+              "_parent": {
+                "$ref": "LAB4_CLASS_MATERIALS_API"
+              },
+              "name": "softDelete",
+              "stereotype": "DELETE /api/insulation-materials/{id}",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_SOFTDELETE_P1",
+                  "_parent": {
+                    "$ref": "LAB4_OP_SOFTDELETE"
+                  },
+                  "name": "id",
+                  "type": "number"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "LAB4_OP_SOFTDELETE_RETURN",
+                  "_parent": {
+                    "$ref": "LAB4_OP_SOFTDELETE"
+                  },
+                  "type": "204",
+                  "direction": "return"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "UMLClassDiagram",
+          "_id": "LAB4_CLASS_DIAGRAM",
+          "_parent": {
+            "$ref": "LAB4_MODEL"
+          },
+          "name": "Диаграмма классов API — ЛР4",
+          "ownedViews": [
+            {
+              "_type": "UMLClassView",
+              "_id": "LAB4_VIEW_CLASS_102",
+              "_parent": {
+                "$ref": "LAB4_CLASS_DIAGRAM"
+              },
+              "model": {
+                "$ref": "LAB4_CLASS_SPA"
+              },
+              "subViews": [
+                {
+                  "_type": "UMLNameCompartmentView",
+                  "_id": "LAB4_VIEW_NAME_COMP_103",
+                  "_parent": {
+                    "$ref": "LAB4_VIEW_CLASS_102"
+                  },
+                  "model": {
+                    "$ref": "LAB4_CLASS_SPA"
+                  },
+                  "subViews": [
+                    {
+                      "_type": "LabelView",
+                      "_id": "LAB4_VIEW_STEREOTYPE_104",
+                      "_parent": {
+                        "$ref": "LAB4_VIEW_NAME_COMP_103"
+                      },
+                      "visible": false,
+                      "font": "Arial;13;0",
+                      "left": 50,
+                      "top": 80,
+                      "height": 13
+                    },
+                    {
+                      "_type": "LabelView",
+                      "_id": "LAB4_VIEW_NAME_105",
+                      "_parent": {
+                        "$ref": "LAB4_VIEW_NAME_COMP_103"
+                      },
+                      "font": "Arial;13;1",
+                      "left": 55,
+                      "top": 87,
+                      "width": 240,
+                      "height": 15,
+                      "text": "SPAClient"
+                    },
+                    {
+                      "_type": "LabelView",
+                      "_id": "LAB4_VIEW_NAMESPACE_106",
+                      "_parent": {
+                        "$ref": "LAB4_VIEW_NAME_COMP_103"
+                      },
+                      "visible": false,
+                      "font": "Arial;13;0",
+                      "left": 50,
+                      "top": 80,
+                      "height": 13
+                    },
+                    {
+                      "_type": "LabelView",
+                      "_id": "LAB4_VIEW_PROPERTY_107",
+                      "_parent": {
+                        "$ref": "LAB4_VIEW_NAME_COMP_103"
+                      },
+                      "visible": false,
+                      "font": "Arial;13;0",
+                      "left": 50,
+                      "top": 80,
+                      "height": 13
+                    }
+                  ],
+                  "font": "Arial;13;0",
+                  "left": 50,
+                  "top": 80,
+                  "width": 250,
+                  "height": 27,
+                  "stereotypeLabel": {
+                    "$ref": "LAB4_VIEW_STEREOTYPE_104"
+                  },
+                  "nameLabel": {
+                    "$ref": "LAB4_VIEW_NAME_105"
+                  },
+                  "namespaceLabel": {
+                    "$ref": "LAB4_VIEW_NAMESPACE_106"
+                  },
+                  "propertyLabel": {
+                    "$ref": "LAB4_VIEW_PROPERTY_107"
+                  }
+                },
+                {
+                  "_type": "UMLAttributeCompartmentView",
+                  "_id": "LAB4_VIEW_ATTRIBUTE_COMP_108",
+                  "_parent": {
+                    "$ref": "LAB4_VIEW_CLASS_102"
+                  },
+                  "model": {
+                    "$ref": "LAB4_CLASS_SPA"
+                  },
+                  "visible": false,
+                  "font": "Arial;13;0",
+                  "left": 50,
+                  "top": 107,
+                  "width": 250,
+                  "height": 10
+                },
+                {
+                  "_type": "UMLOperationCompartmentView",
+                  "_id": "LAB4_VIEW_OP_COMP_109",
+                  "_parent": {
+                    "$ref": "LAB4_VIEW_CLASS_102"
+                  },
+                  "model": {
+                    "$ref": "LAB4_CLASS_SPA"
+                  },
+                  "subViews": [],
+                  "font": "Arial;13;0",
+                  "left": 50,
+                  "top": 107,
+                  "width": 250,
+                  "height": 17
+                },
+                {
+                  "_type": "UMLReceptionCompartmentView",
+                  "_id": "LAB4_VIEW_RECEPTION_COMP_110",
+                  "_parent": {
+                    "$ref": "LAB4_VIEW_CLASS_102"
+                  },
+                  "model": {
+                    "$ref": "LAB4_CLASS_SPA"
+                  },
+                  "visible": false,
+                  "font": "Arial;13;0",
+                  "left": 50,
+                  "top": 80,
+                  "width": 10,
+                  "height": 10
+                },
+                {
+                  "_type": "UMLTemplateParameterCompartmentView",
+                  "_id": "LAB4_VIEW_TEMPLATE_COMP_111",
+                  "_parent": {
+                    "$ref": "LAB4_VIEW_CLASS_102"
+                  },
+                  "model": {
+                    "$ref": "LAB4_CLASS_SPA"
+                  },
+                  "visible": false,
+                  "font": "Arial;13;0",
+                  "left": 50,
+                  "top": 80,
+                  "width": 10,
+                  "height": 10
+                }
+              ],
+              "font": "Arial;13;0",
+              "containerChangeable": true,
+              "left": 50,
+              "top": 80,
+              "width": 250,
+              "height": 44,
+              "nameCompartment": {
+                "$ref": "LAB4_VIEW_NAME_COMP_103"
+              },
+              "suppressAttributes": true,
+              "attributeCompartment": {
+                "$ref": "LAB4_VIEW_ATTRIBUTE_COMP_108"
+              },
+              "operationCompartment": {
+                "$ref": "LAB4_VIEW_OP_COMP_109"
+              },
+              "receptionCompartment": {
+                "$ref": "LAB4_VIEW_RECEPTION_COMP_110"
+              },
+              "templateParameterCompartment": {
+                "$ref": "LAB4_VIEW_TEMPLATE_COMP_111"
+              }
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "LAB4_VIEW_CLASS_112",
+              "_parent": {
+                "$ref": "LAB4_CLASS_DIAGRAM"
+              },
+              "model": {
+                "$ref": "LAB4_CLASS_USERS_API"
+              },
+              "subViews": [
+                {
+                  "_type": "UMLNameCompartmentView",
+                  "_id": "LAB4_VIEW_NAME_COMP_113",
+                  "_parent": {
+                    "$ref": "LAB4_VIEW_CLASS_112"
+                  },
+                  "model": {
+                    "$ref": "LAB4_CLASS_USERS_API"
+                  },
+                  "subViews": [
+                    {
+                      "_type": "LabelView",
+                      "_id": "LAB4_VIEW_STEREOTYPE_114",
+                      "_parent": {
+                        "$ref": "LAB4_VIEW_NAME_COMP_113"
+                      },
+                      "visible": false,
+                      "font": "Arial;13;0",
+                      "left": 360,
+                      "top": 60,
+                      "height": 13
+                    },
+                    {
+                      "_type": "LabelView",
+                      "_id": "LAB4_VIEW_NAME_115",
+                      "_parent": {
+                        "$ref": "LAB4_VIEW_NAME_COMP_113"
+                      },
+                      "font": "Arial;13;1",
+                      "left": 365,
+                      "top": 67,
+                      "width": 320,
+                      "height": 15,
+                      "text": "UsersAPI"
+                    },
+                    {
+                      "_type": "LabelView",
+                      "_id": "LAB4_VIEW_NAMESPACE_116",
+                      "_parent": {
+                        "$ref": "LAB4_VIEW_NAME_COMP_113"
+                      },
+                      "visible": false,
+                      "font": "Arial;13;0",
+                      "left": 360,
+                      "top": 60,
+                      "height": 13
+                    },
+                    {
+                      "_type": "LabelView",
+                      "_id": "LAB4_VIEW_PROPERTY_117",
+                      "_parent": {
+                        "$ref": "LAB4_VIEW_NAME_COMP_113"
+                      },
+                      "visible": false,
+                      "font": "Arial;13;0",
+                      "left": 360,
+                      "top": 60,
+                      "height": 13
+                    }
+                  ],
+                  "font": "Arial;13;0",
+                  "left": 360,
+                  "top": 60,
+                  "width": 330,
+                  "height": 27,
+                  "stereotypeLabel": {
+                    "$ref": "LAB4_VIEW_STEREOTYPE_114"
+                  },
+                  "nameLabel": {
+                    "$ref": "LAB4_VIEW_NAME_115"
+                  },
+                  "namespaceLabel": {
+                    "$ref": "LAB4_VIEW_NAMESPACE_116"
+                  },
+                  "propertyLabel": {
+                    "$ref": "LAB4_VIEW_PROPERTY_117"
+                  }
+                },
+                {
+                  "_type": "UMLAttributeCompartmentView",
+                  "_id": "LAB4_VIEW_ATTRIBUTE_COMP_118",
+                  "_parent": {
+                    "$ref": "LAB4_VIEW_CLASS_112"
+                  },
+                  "model": {
+                    "$ref": "LAB4_CLASS_USERS_API"
+                  },
+                  "visible": false,
+                  "font": "Arial;13;0",
+                  "left": 360,
+                  "top": 87,
+                  "width": 330,
+                  "height": 10
+                },
+                {
+                  "_type": "UMLOperationCompartmentView",
+                  "_id": "LAB4_VIEW_OP_COMP_119",
+                  "_parent": {
+                    "$ref": "LAB4_VIEW_CLASS_112"
+                  },
+                  "model": {
+                    "$ref": "LAB4_CLASS_USERS_API"
+                  },
+                  "subViews": [
+                    {
+                      "_type": "UMLOperationView",
+                      "_id": "LAB4_VIEW_OP_122",
+                      "_parent": {
+                        "$ref": "LAB4_VIEW_OP_COMP_119"
+                      },
+                      "model": {
+                        "$ref": "LAB4_OP_REGISTER"
+                      },
+                      "font": "Arial;13;0",
+                      "left": 365,
+                      "top": 92,
+                      "width": 320,
+                      "height": 15,
+                      "text": "+register(email, displayName, password)",
+                      "horizontalAlignment": 0
+                    },
+                    {
+                      "_type": "UMLOperationView",
+                      "_id": "LAB4_VIEW_OP_123",
+                      "_parent": {
+                        "$ref": "LAB4_VIEW_OP_COMP_119"
+                      },
+                      "model": {
+                        "$ref": "LAB4_OP_AUTHENTICATE"
+                      },
+                      "font": "Arial;13;0",
+                      "left": 365,
+                      "top": 110,
+                      "width": 320,
+                      "height": 15,
+                      "text": "+authenticate(email, password)",
+                      "horizontalAlignment": 0
+                    },
+                    {
+                      "_type": "UMLOperationView",
+                      "_id": "LAB4_VIEW_OP_124",
+                      "_parent": {
+                        "$ref": "LAB4_VIEW_OP_COMP_119"
+                      },
+                      "model": {
+                        "$ref": "LAB4_OP_LOGOUT"
+                      },
+                      "font": "Arial;13;0",
+                      "left": 365,
+                      "top": 128,
+                      "width": 320,
+                      "height": 15,
+                      "text": "+logout()",
+                      "horizontalAlignment": 0
+                    }
+                  ],
+                  "font": "Arial;13;0",
+                  "left": 360,
+                  "top": 87,
+                  "width": 330,
+                  "height": 71
+                },
+                {
+                  "_type": "UMLReceptionCompartmentView",
+                  "_id": "LAB4_VIEW_RECEPTION_COMP_120",
+                  "_parent": {
+                    "$ref": "LAB4_VIEW_CLASS_112"
+                  },
+                  "model": {
+                    "$ref": "LAB4_CLASS_USERS_API"
+                  },
+                  "visible": false,
+                  "font": "Arial;13;0",
+                  "left": 360,
+                  "top": 60,
+                  "width": 10,
+                  "height": 10
+                },
+                {
+                  "_type": "UMLTemplateParameterCompartmentView",
+                  "_id": "LAB4_VIEW_TEMPLATE_COMP_121",
+                  "_parent": {
+                    "$ref": "LAB4_VIEW_CLASS_112"
+                  },
+                  "model": {
+                    "$ref": "LAB4_CLASS_USERS_API"
+                  },
+                  "visible": false,
+                  "font": "Arial;13;0",
+                  "left": 360,
+                  "top": 60,
+                  "width": 10,
+                  "height": 10
+                }
+              ],
+              "font": "Arial;13;0",
+              "containerChangeable": true,
+              "left": 360,
+              "top": 60,
+              "width": 330,
+              "height": 98,
+              "nameCompartment": {
+                "$ref": "LAB4_VIEW_NAME_COMP_113"
+              },
+              "suppressAttributes": true,
+              "attributeCompartment": {
+                "$ref": "LAB4_VIEW_ATTRIBUTE_COMP_118"
+              },
+              "operationCompartment": {
+                "$ref": "LAB4_VIEW_OP_COMP_119"
+              },
+              "receptionCompartment": {
+                "$ref": "LAB4_VIEW_RECEPTION_COMP_120"
+              },
+              "templateParameterCompartment": {
+                "$ref": "LAB4_VIEW_TEMPLATE_COMP_121"
+              }
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "LAB4_VIEW_CLASS_125",
+              "_parent": {
+                "$ref": "LAB4_CLASS_DIAGRAM"
+              },
+              "model": {
+                "$ref": "LAB4_CLASS_MATERIALS_API"
+              },
+              "subViews": [
+                {
+                  "_type": "UMLNameCompartmentView",
+                  "_id": "LAB4_VIEW_NAME_COMP_126",
+                  "_parent": {
+                    "$ref": "LAB4_VIEW_CLASS_125"
+                  },
+                  "model": {
+                    "$ref": "LAB4_CLASS_MATERIALS_API"
+                  },
+                  "subViews": [
+                    {
+                      "_type": "LabelView",
+                      "_id": "LAB4_VIEW_STEREOTYPE_127",
+                      "_parent": {
+                        "$ref": "LAB4_VIEW_NAME_COMP_126"
+                      },
+                      "visible": false,
+                      "font": "Arial;13;0",
+                      "left": 750,
+                      "top": 30,
+                      "height": 13
+                    },
+                    {
+                      "_type": "LabelView",
+                      "_id": "LAB4_VIEW_NAME_128",
+                      "_parent": {
+                        "$ref": "LAB4_VIEW_NAME_COMP_126"
+                      },
+                      "font": "Arial;13;1",
+                      "left": 755,
+                      "top": 37,
+                      "width": 420,
+                      "height": 15,
+                      "text": "InsulationMaterialsAPI"
+                    },
+                    {
+                      "_type": "LabelView",
+                      "_id": "LAB4_VIEW_NAMESPACE_129",
+                      "_parent": {
+                        "$ref": "LAB4_VIEW_NAME_COMP_126"
+                      },
+                      "visible": false,
+                      "font": "Arial;13;0",
+                      "left": 750,
+                      "top": 30,
+                      "height": 13
+                    },
+                    {
+                      "_type": "LabelView",
+                      "_id": "LAB4_VIEW_PROPERTY_130",
+                      "_parent": {
+                        "$ref": "LAB4_VIEW_NAME_COMP_126"
+                      },
+                      "visible": false,
+                      "font": "Arial;13;0",
+                      "left": 750,
+                      "top": 30,
+                      "height": 13
+                    }
+                  ],
+                  "font": "Arial;13;0",
+                  "left": 750,
+                  "top": 30,
+                  "width": 430,
+                  "height": 27,
+                  "stereotypeLabel": {
+                    "$ref": "LAB4_VIEW_STEREOTYPE_127"
+                  },
+                  "nameLabel": {
+                    "$ref": "LAB4_VIEW_NAME_128"
+                  },
+                  "namespaceLabel": {
+                    "$ref": "LAB4_VIEW_NAMESPACE_129"
+                  },
+                  "propertyLabel": {
+                    "$ref": "LAB4_VIEW_PROPERTY_130"
+                  }
+                },
+                {
+                  "_type": "UMLAttributeCompartmentView",
+                  "_id": "LAB4_VIEW_ATTRIBUTE_COMP_131",
+                  "_parent": {
+                    "$ref": "LAB4_VIEW_CLASS_125"
+                  },
+                  "model": {
+                    "$ref": "LAB4_CLASS_MATERIALS_API"
+                  },
+                  "visible": false,
+                  "font": "Arial;13;0",
+                  "left": 750,
+                  "top": 57,
+                  "width": 430,
+                  "height": 10
+                },
+                {
+                  "_type": "UMLOperationCompartmentView",
+                  "_id": "LAB4_VIEW_OP_COMP_132",
+                  "_parent": {
+                    "$ref": "LAB4_VIEW_CLASS_125"
+                  },
+                  "model": {
+                    "$ref": "LAB4_CLASS_MATERIALS_API"
+                  },
+                  "subViews": [
+                    {
+                      "_type": "UMLOperationView",
+                      "_id": "LAB4_VIEW_OP_135",
+                      "_parent": {
+                        "$ref": "LAB4_VIEW_OP_COMP_132"
+                      },
+                      "model": {
+                        "$ref": "LAB4_OP_LIST"
+                      },
+                      "font": "Arial;13;0",
+                      "left": 755,
+                      "top": 62,
+                      "width": 420,
+                      "height": 15,
+                      "text": "+list(maxThicknessMm?, insulationType?, search?)",
+                      "horizontalAlignment": 0
+                    },
+                    {
+                      "_type": "UMLOperationView",
+                      "_id": "LAB4_VIEW_OP_136",
+                      "_parent": {
+                        "$ref": "LAB4_VIEW_OP_COMP_132"
+                      },
+                      "model": {
+                        "$ref": "LAB4_OP_CREATE"
+                      },
+                      "font": "Arial;13;0",
+                      "left": 755,
+                      "top": 80,
+                      "width": 420,
+                      "height": 15,
+                      "text": "+create(fields, image, video)",
+                      "horizontalAlignment": 0
+                    },
+                    {
+                      "_type": "UMLOperationView",
+                      "_id": "LAB4_VIEW_OP_137",
+                      "_parent": {
+                        "$ref": "LAB4_VIEW_OP_COMP_132"
+                      },
+                      "model": {
+                        "$ref": "LAB4_OP_DRAFT"
+                      },
+                      "font": "Arial;13;0",
+                      "left": 755,
+                      "top": 98,
+                      "width": 420,
+                      "height": 15,
+                      "text": "+draft()",
+                      "horizontalAlignment": 0
+                    },
+                    {
+                      "_type": "UMLOperationView",
+                      "_id": "LAB4_VIEW_OP_138",
+                      "_parent": {
+                        "$ref": "LAB4_VIEW_OP_COMP_132"
+                      },
+                      "model": {
+                        "$ref": "LAB4_OP_PUBLISH"
+                      },
+                      "font": "Arial;13;0",
+                      "left": 755,
+                      "top": 116,
+                      "width": 420,
+                      "height": 15,
+                      "text": "+publish(id)",
+                      "horizontalAlignment": 0
+                    },
+                    {
+                      "_type": "UMLOperationView",
+                      "_id": "LAB4_VIEW_OP_139",
+                      "_parent": {
+                        "$ref": "LAB4_VIEW_OP_COMP_132"
+                      },
+                      "model": {
+                        "$ref": "LAB4_OP_FEEDSTART"
+                      },
+                      "font": "Arial;13;0",
+                      "left": 755,
+                      "top": 134,
+                      "width": 420,
+                      "height": 15,
+                      "text": "+feed()",
+                      "horizontalAlignment": 0
+                    },
+                    {
+                      "_type": "UMLOperationView",
+                      "_id": "LAB4_VIEW_OP_140",
+                      "_parent": {
+                        "$ref": "LAB4_VIEW_OP_COMP_132"
+                      },
+                      "model": {
+                        "$ref": "LAB4_OP_FEEDNEXT"
+                      },
+                      "font": "Arial;13;0",
+                      "left": 755,
+                      "top": 152,
+                      "width": 420,
+                      "height": 15,
+                      "text": "+feed(id, next)",
+                      "horizontalAlignment": 0
+                    },
+                    {
+                      "_type": "UMLOperationView",
+                      "_id": "LAB4_VIEW_OP_141",
+                      "_parent": {
+                        "$ref": "LAB4_VIEW_OP_COMP_132"
+                      },
+                      "model": {
+                        "$ref": "LAB4_OP_SETLIKE"
+                      },
+                      "font": "Arial;13;0",
+                      "left": 755,
+                      "top": 170,
+                      "width": 420,
+                      "height": 15,
+                      "text": "+setLike(id, liked)",
+                      "horizontalAlignment": 0
+                    },
+                    {
+                      "_type": "UMLOperationView",
+                      "_id": "LAB4_VIEW_OP_142",
+                      "_parent": {
+                        "$ref": "LAB4_VIEW_OP_COMP_132"
+                      },
+                      "model": {
+                        "$ref": "LAB4_OP_SOFTDELETE"
+                      },
+                      "font": "Arial;13;0",
+                      "left": 755,
+                      "top": 188,
+                      "width": 420,
+                      "height": 15,
+                      "text": "+softDelete(id)",
+                      "horizontalAlignment": 0
+                    }
+                  ],
+                  "font": "Arial;13;0",
+                  "left": 750,
+                  "top": 57,
+                  "width": 430,
+                  "height": 161
+                },
+                {
+                  "_type": "UMLReceptionCompartmentView",
+                  "_id": "LAB4_VIEW_RECEPTION_COMP_133",
+                  "_parent": {
+                    "$ref": "LAB4_VIEW_CLASS_125"
+                  },
+                  "model": {
+                    "$ref": "LAB4_CLASS_MATERIALS_API"
+                  },
+                  "visible": false,
+                  "font": "Arial;13;0",
+                  "left": 750,
+                  "top": 30,
+                  "width": 10,
+                  "height": 10
+                },
+                {
+                  "_type": "UMLTemplateParameterCompartmentView",
+                  "_id": "LAB4_VIEW_TEMPLATE_COMP_134",
+                  "_parent": {
+                    "$ref": "LAB4_VIEW_CLASS_125"
+                  },
+                  "model": {
+                    "$ref": "LAB4_CLASS_MATERIALS_API"
+                  },
+                  "visible": false,
+                  "font": "Arial;13;0",
+                  "left": 750,
+                  "top": 30,
+                  "width": 10,
+                  "height": 10
+                }
+              ],
+              "font": "Arial;13;0",
+              "containerChangeable": true,
+              "left": 750,
+              "top": 30,
+              "width": 430,
+              "height": 188,
+              "nameCompartment": {
+                "$ref": "LAB4_VIEW_NAME_COMP_126"
+              },
+              "suppressAttributes": true,
+              "attributeCompartment": {
+                "$ref": "LAB4_VIEW_ATTRIBUTE_COMP_131"
+              },
+              "operationCompartment": {
+                "$ref": "LAB4_VIEW_OP_COMP_132"
+              },
+              "receptionCompartment": {
+                "$ref": "LAB4_VIEW_RECEPTION_COMP_133"
+              },
+              "templateParameterCompartment": {
+                "$ref": "LAB4_VIEW_TEMPLATE_COMP_134"
+              }
+            }
+          ]
+        },
+        {
+          "_type": "UMLCollaboration",
+          "_id": "LAB4_COLLABORATION",
+          "_parent": {
+            "$ref": "LAB4_MODEL"
+          },
+          "name": "HTTP-взаимодействие SPA и доменов",
+          "attributes": [
+            {
+              "_type": "UMLAttribute",
+              "_id": "LAB4_ROLE_CLIENT",
+              "_parent": {
+                "$ref": "LAB4_COLLABORATION"
+              },
+              "name": "client",
+              "type": {
+                "$ref": "LAB4_CLASS_SPA"
+              }
+            },
+            {
+              "_type": "UMLAttribute",
+              "_id": "LAB4_ROLE_USERSAPI",
+              "_parent": {
+                "$ref": "LAB4_COLLABORATION"
+              },
+              "name": "usersApi",
+              "type": {
+                "$ref": "LAB4_CLASS_USERS_API"
+              }
+            },
+            {
+              "_type": "UMLAttribute",
+              "_id": "LAB4_ROLE_MATERIALSAPI",
+              "_parent": {
+                "$ref": "LAB4_COLLABORATION"
+              },
+              "name": "materialsApi",
+              "type": {
+                "$ref": "LAB4_CLASS_MATERIALS_API"
+              }
+            }
+          ],
+          "ownedElements": [
+            {
+              "_type": "UMLInteraction",
+              "_id": "LAB4_INTERACTION",
+              "_parent": {
+                "$ref": "LAB4_COLLABORATION"
+              },
+              "name": "Бизнес-процесс SPA",
+              "ownedElements": [
+                {
+                  "_type": "UMLSequenceDiagram",
+                  "_id": "LAB4_SEQUENCE_DIAGRAM",
+                  "_parent": {
+                    "$ref": "LAB4_INTERACTION"
+                  },
+                  "name": "Sequence — полный бизнес-процесс ЛР4",
+                  "ownedViews": [
+                    {
+                      "_type": "UMLSeqLifelineView",
+                      "_id": "LAB4_VIEW_LIFELINE_1",
+                      "_parent": {
+                        "$ref": "LAB4_SEQUENCE_DIAGRAM"
+                      },
+                      "model": {
+                        "$ref": "LAB4_LIFELINE_CLIENT"
+                      },
+                      "subViews": [
+                        {
+                          "_type": "UMLNameCompartmentView",
+                          "_id": "LAB4_VIEW_LIFELINE_NAME_COMP_2",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_LIFELINE_1"
+                          },
+                          "model": {
+                            "$ref": "LAB4_LIFELINE_CLIENT"
+                          },
+                          "subViews": [
+                            {
+                              "_type": "LabelView",
+                              "_id": "LAB4_VIEW_LIFELINE_STEREOTYPE_3",
+                              "_parent": {
+                                "$ref": "LAB4_VIEW_LIFELINE_NAME_COMP_2"
+                              },
+                              "visible": false,
+                              "font": "Arial;13;0",
+                              "left": 55,
+                              "top": 35,
+                              "height": 13
+                            },
+                            {
+                              "_type": "LabelView",
+                              "_id": "LAB4_VIEW_LIFELINE_NAME_4",
+                              "_parent": {
+                                "$ref": "LAB4_VIEW_LIFELINE_NAME_COMP_2"
+                              },
+                              "font": "Arial;13;1",
+                              "left": 55,
+                              "top": 52,
+                              "width": 230,
+                              "height": 15,
+                              "text": "Фронтенд SPA (создатель)"
+                            },
+                            {
+                              "_type": "LabelView",
+                              "_id": "LAB4_VIEW_LIFELINE_NAMESPACE_5",
+                              "_parent": {
+                                "$ref": "LAB4_VIEW_LIFELINE_NAME_COMP_2"
+                              },
+                              "visible": false,
+                              "font": "Arial;13;0",
+                              "left": 55,
+                              "top": 35,
+                              "height": 13
+                            },
+                            {
+                              "_type": "LabelView",
+                              "_id": "LAB4_VIEW_LIFELINE_PROPERTY_6",
+                              "_parent": {
+                                "$ref": "LAB4_VIEW_LIFELINE_NAME_COMP_2"
+                              },
+                              "visible": false,
+                              "font": "Arial;13;0",
+                              "left": 55,
+                              "top": 35,
+                              "height": 13
+                            }
+                          ],
+                          "font": "Arial;13;0",
+                          "left": 50,
+                          "top": 40,
+                          "width": 240,
+                          "height": 40,
+                          "stereotypeLabel": {
+                            "$ref": "LAB4_VIEW_LIFELINE_STEREOTYPE_3"
+                          },
+                          "nameLabel": {
+                            "$ref": "LAB4_VIEW_LIFELINE_NAME_4"
+                          },
+                          "namespaceLabel": {
+                            "$ref": "LAB4_VIEW_LIFELINE_NAMESPACE_5"
+                          },
+                          "propertyLabel": {
+                            "$ref": "LAB4_VIEW_LIFELINE_PROPERTY_6"
+                          }
+                        },
+                        {
+                          "_type": "UMLLinePartView",
+                          "_id": "LAB4_VIEW_LINE_7",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_LIFELINE_1"
+                          },
+                          "model": {
+                            "$ref": "LAB4_LIFELINE_CLIENT"
+                          },
+                          "font": "Arial;13;0",
+                          "left": 170,
+                          "top": 80,
+                          "width": 1,
+                          "height": 820
+                        }
+                      ],
+                      "font": "Arial;13;0",
+                      "left": 50,
+                      "top": 40,
+                      "width": 240,
+                      "height": 860,
+                      "nameCompartment": {
+                        "$ref": "LAB4_VIEW_LIFELINE_NAME_COMP_2"
+                      },
+                      "linePart": {
+                        "$ref": "LAB4_VIEW_LINE_7"
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqLifelineView",
+                      "_id": "LAB4_VIEW_LIFELINE_8",
+                      "_parent": {
+                        "$ref": "LAB4_SEQUENCE_DIAGRAM"
+                      },
+                      "model": {
+                        "$ref": "LAB4_LIFELINE_USERSAPI"
+                      },
+                      "subViews": [
+                        {
+                          "_type": "UMLNameCompartmentView",
+                          "_id": "LAB4_VIEW_LIFELINE_NAME_COMP_9",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_LIFELINE_8"
+                          },
+                          "model": {
+                            "$ref": "LAB4_LIFELINE_USERSAPI"
+                          },
+                          "subViews": [
+                            {
+                              "_type": "LabelView",
+                              "_id": "LAB4_VIEW_LIFELINE_STEREOTYPE_10",
+                              "_parent": {
+                                "$ref": "LAB4_VIEW_LIFELINE_NAME_COMP_9"
+                              },
+                              "visible": false,
+                              "font": "Arial;13;0",
+                              "left": 495,
+                              "top": 35,
+                              "height": 13
+                            },
+                            {
+                              "_type": "LabelView",
+                              "_id": "LAB4_VIEW_LIFELINE_NAME_11",
+                              "_parent": {
+                                "$ref": "LAB4_VIEW_LIFELINE_NAME_COMP_9"
+                              },
+                              "font": "Arial;13;1",
+                              "left": 495,
+                              "top": 52,
+                              "width": 230,
+                              "height": 15,
+                              "text": ": Домен users (UsersAPI)"
+                            },
+                            {
+                              "_type": "LabelView",
+                              "_id": "LAB4_VIEW_LIFELINE_NAMESPACE_12",
+                              "_parent": {
+                                "$ref": "LAB4_VIEW_LIFELINE_NAME_COMP_9"
+                              },
+                              "visible": false,
+                              "font": "Arial;13;0",
+                              "left": 495,
+                              "top": 35,
+                              "height": 13
+                            },
+                            {
+                              "_type": "LabelView",
+                              "_id": "LAB4_VIEW_LIFELINE_PROPERTY_13",
+                              "_parent": {
+                                "$ref": "LAB4_VIEW_LIFELINE_NAME_COMP_9"
+                              },
+                              "visible": false,
+                              "font": "Arial;13;0",
+                              "left": 495,
+                              "top": 35,
+                              "height": 13
+                            }
+                          ],
+                          "font": "Arial;13;0",
+                          "left": 490,
+                          "top": 40,
+                          "width": 240,
+                          "height": 40,
+                          "stereotypeLabel": {
+                            "$ref": "LAB4_VIEW_LIFELINE_STEREOTYPE_10"
+                          },
+                          "nameLabel": {
+                            "$ref": "LAB4_VIEW_LIFELINE_NAME_11"
+                          },
+                          "namespaceLabel": {
+                            "$ref": "LAB4_VIEW_LIFELINE_NAMESPACE_12"
+                          },
+                          "propertyLabel": {
+                            "$ref": "LAB4_VIEW_LIFELINE_PROPERTY_13"
+                          }
+                        },
+                        {
+                          "_type": "UMLLinePartView",
+                          "_id": "LAB4_VIEW_LINE_14",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_LIFELINE_8"
+                          },
+                          "model": {
+                            "$ref": "LAB4_LIFELINE_USERSAPI"
+                          },
+                          "font": "Arial;13;0",
+                          "left": 610,
+                          "top": 80,
+                          "width": 1,
+                          "height": 820
+                        }
+                      ],
+                      "font": "Arial;13;0",
+                      "left": 490,
+                      "top": 40,
+                      "width": 240,
+                      "height": 860,
+                      "nameCompartment": {
+                        "$ref": "LAB4_VIEW_LIFELINE_NAME_COMP_9"
+                      },
+                      "linePart": {
+                        "$ref": "LAB4_VIEW_LINE_14"
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqLifelineView",
+                      "_id": "LAB4_VIEW_LIFELINE_15",
+                      "_parent": {
+                        "$ref": "LAB4_SEQUENCE_DIAGRAM"
+                      },
+                      "model": {
+                        "$ref": "LAB4_LIFELINE_MATERIALSAPI"
+                      },
+                      "subViews": [
+                        {
+                          "_type": "UMLNameCompartmentView",
+                          "_id": "LAB4_VIEW_LIFELINE_NAME_COMP_16",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_LIFELINE_15"
+                          },
+                          "model": {
+                            "$ref": "LAB4_LIFELINE_MATERIALSAPI"
+                          },
+                          "subViews": [
+                            {
+                              "_type": "LabelView",
+                              "_id": "LAB4_VIEW_LIFELINE_STEREOTYPE_17",
+                              "_parent": {
+                                "$ref": "LAB4_VIEW_LIFELINE_NAME_COMP_16"
+                              },
+                              "visible": false,
+                              "font": "Arial;13;0",
+                              "left": 955,
+                              "top": 35,
+                              "height": 13
+                            },
+                            {
+                              "_type": "LabelView",
+                              "_id": "LAB4_VIEW_LIFELINE_NAME_18",
+                              "_parent": {
+                                "$ref": "LAB4_VIEW_LIFELINE_NAME_COMP_16"
+                              },
+                              "font": "Arial;13;1",
+                              "left": 955,
+                              "top": 52,
+                              "width": 230,
+                              "height": 15,
+                              "text": ": Домен insulation-materials (InsulationMaterialsAPI)"
+                            },
+                            {
+                              "_type": "LabelView",
+                              "_id": "LAB4_VIEW_LIFELINE_NAMESPACE_19",
+                              "_parent": {
+                                "$ref": "LAB4_VIEW_LIFELINE_NAME_COMP_16"
+                              },
+                              "visible": false,
+                              "font": "Arial;13;0",
+                              "left": 955,
+                              "top": 35,
+                              "height": 13
+                            },
+                            {
+                              "_type": "LabelView",
+                              "_id": "LAB4_VIEW_LIFELINE_PROPERTY_20",
+                              "_parent": {
+                                "$ref": "LAB4_VIEW_LIFELINE_NAME_COMP_16"
+                              },
+                              "visible": false,
+                              "font": "Arial;13;0",
+                              "left": 955,
+                              "top": 35,
+                              "height": 13
+                            }
+                          ],
+                          "font": "Arial;13;0",
+                          "left": 950,
+                          "top": 40,
+                          "width": 240,
+                          "height": 40,
+                          "stereotypeLabel": {
+                            "$ref": "LAB4_VIEW_LIFELINE_STEREOTYPE_17"
+                          },
+                          "nameLabel": {
+                            "$ref": "LAB4_VIEW_LIFELINE_NAME_18"
+                          },
+                          "namespaceLabel": {
+                            "$ref": "LAB4_VIEW_LIFELINE_NAMESPACE_19"
+                          },
+                          "propertyLabel": {
+                            "$ref": "LAB4_VIEW_LIFELINE_PROPERTY_20"
+                          }
+                        },
+                        {
+                          "_type": "UMLLinePartView",
+                          "_id": "LAB4_VIEW_LINE_21",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_LIFELINE_15"
+                          },
+                          "model": {
+                            "$ref": "LAB4_LIFELINE_MATERIALSAPI"
+                          },
+                          "font": "Arial;13;0",
+                          "left": 1070,
+                          "top": 80,
+                          "width": 1,
+                          "height": 820
+                        }
+                      ],
+                      "font": "Arial;13;0",
+                      "left": 950,
+                      "top": 40,
+                      "width": 240,
+                      "height": 860,
+                      "nameCompartment": {
+                        "$ref": "LAB4_VIEW_LIFELINE_NAME_COMP_16"
+                      },
+                      "linePart": {
+                        "$ref": "LAB4_VIEW_LINE_21"
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "LAB4_VIEW_MESSAGE_22",
+                      "_parent": {
+                        "$ref": "LAB4_SEQUENCE_DIAGRAM"
+                      },
+                      "model": {
+                        "$ref": "LAB4_MESSAGE_1_REQUEST"
+                      },
+                      "subViews": [
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_NAME_23",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_22"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_1_REQUEST"
+                          },
+                          "font": "Arial;12;0",
+                          "left": 178,
+                          "top": 97,
+                          "width": 424,
+                          "height": 15,
+                          "text": "1: POST /api/users/authenticate(email, password)",
+                          "alpha": 1.5708,
+                          "distance": 10,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_22"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_STEREOTYPE_24",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_22"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_1_REQUEST"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 85,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_22"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_PROPERTY_25",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_22"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_1_REQUEST"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 119,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_22"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "UMLActivationView",
+                          "_id": "LAB4_VIEW_ACTIVATION_26",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_22"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_1_REQUEST"
+                          },
+                          "visible": true,
+                          "font": "Arial;13;0",
+                          "left": 603,
+                          "top": 115,
+                          "width": 14,
+                          "height": 40
+                        }
+                      ],
+                      "font": "Arial;13;0",
+                      "lineMode": 0,
+                      "head": {
+                        "$ref": "LAB4_VIEW_LINE_14"
+                      },
+                      "tail": {
+                        "$ref": "LAB4_VIEW_LINE_7"
+                      },
+                      "points": "170:115;610:115",
+                      "nameLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_NAME_23"
+                      },
+                      "stereotypeLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_STEREOTYPE_24"
+                      },
+                      "propertyLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_PROPERTY_25"
+                      },
+                      "activation": {
+                        "$ref": "LAB4_VIEW_ACTIVATION_26"
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "LAB4_VIEW_MESSAGE_27",
+                      "_parent": {
+                        "$ref": "LAB4_SEQUENCE_DIAGRAM"
+                      },
+                      "model": {
+                        "$ref": "LAB4_MESSAGE_1_RESPONSE"
+                      },
+                      "subViews": [
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_NAME_28",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_27"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_1_RESPONSE"
+                          },
+                          "font": "Arial;12;0",
+                          "left": 178,
+                          "top": 137,
+                          "width": 424,
+                          "height": 15,
+                          "text": "200(user, Set-Cookie: sessionId)",
+                          "alpha": 1.5708,
+                          "distance": 10,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_27"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_STEREOTYPE_29",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_27"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_1_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 125,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_27"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_PROPERTY_30",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_27"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_1_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 159,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_27"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "UMLActivationView",
+                          "_id": "LAB4_VIEW_ACTIVATION_31",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_27"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_1_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 163,
+                          "top": 155,
+                          "width": 14,
+                          "height": 25
+                        }
+                      ],
+                      "font": "Arial;13;0",
+                      "lineMode": 1,
+                      "head": {
+                        "$ref": "LAB4_VIEW_LINE_7"
+                      },
+                      "tail": {
+                        "$ref": "LAB4_VIEW_LINE_14"
+                      },
+                      "points": "610:155;170:155",
+                      "nameLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_NAME_28"
+                      },
+                      "stereotypeLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_STEREOTYPE_29"
+                      },
+                      "propertyLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_PROPERTY_30"
+                      },
+                      "activation": {
+                        "$ref": "LAB4_VIEW_ACTIVATION_31"
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "LAB4_VIEW_MESSAGE_32",
+                      "_parent": {
+                        "$ref": "LAB4_SEQUENCE_DIAGRAM"
+                      },
+                      "model": {
+                        "$ref": "LAB4_MESSAGE_2_REQUEST"
+                      },
+                      "subViews": [
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_NAME_33",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_32"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_2_REQUEST"
+                          },
+                          "font": "Arial;12;0",
+                          "left": 178,
+                          "top": 191,
+                          "width": 884,
+                          "height": 15,
+                          "text": "2: GET /api/insulation-materials(maxThicknessMm=100, insulationType=\"Минвата\")",
+                          "alpha": 1.5708,
+                          "distance": 10,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_32"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_STEREOTYPE_34",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_32"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_2_REQUEST"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 179,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_32"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_PROPERTY_35",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_32"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_2_REQUEST"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 213,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_32"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "UMLActivationView",
+                          "_id": "LAB4_VIEW_ACTIVATION_36",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_32"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_2_REQUEST"
+                          },
+                          "visible": true,
+                          "font": "Arial;13;0",
+                          "left": 1063,
+                          "top": 209,
+                          "width": 14,
+                          "height": 40
+                        }
+                      ],
+                      "font": "Arial;13;0",
+                      "lineMode": 0,
+                      "head": {
+                        "$ref": "LAB4_VIEW_LINE_21"
+                      },
+                      "tail": {
+                        "$ref": "LAB4_VIEW_LINE_7"
+                      },
+                      "points": "170:209;1070:209",
+                      "nameLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_NAME_33"
+                      },
+                      "stereotypeLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_STEREOTYPE_34"
+                      },
+                      "propertyLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_PROPERTY_35"
+                      },
+                      "activation": {
+                        "$ref": "LAB4_VIEW_ACTIVATION_36"
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "LAB4_VIEW_MESSAGE_37",
+                      "_parent": {
+                        "$ref": "LAB4_SEQUENCE_DIAGRAM"
+                      },
+                      "model": {
+                        "$ref": "LAB4_MESSAGE_2_RESPONSE"
+                      },
+                      "subViews": [
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_NAME_38",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_37"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_2_RESPONSE"
+                          },
+                          "font": "Arial;12;0",
+                          "left": 178,
+                          "top": 231,
+                          "width": 884,
+                          "height": 15,
+                          "text": "200(items[], count)",
+                          "alpha": 1.5708,
+                          "distance": 10,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_37"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_STEREOTYPE_39",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_37"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_2_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 219,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_37"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_PROPERTY_40",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_37"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_2_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 253,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_37"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "UMLActivationView",
+                          "_id": "LAB4_VIEW_ACTIVATION_41",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_37"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_2_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 163,
+                          "top": 249,
+                          "width": 14,
+                          "height": 25
+                        }
+                      ],
+                      "font": "Arial;13;0",
+                      "lineMode": 1,
+                      "head": {
+                        "$ref": "LAB4_VIEW_LINE_7"
+                      },
+                      "tail": {
+                        "$ref": "LAB4_VIEW_LINE_21"
+                      },
+                      "points": "1070:249;170:249",
+                      "nameLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_NAME_38"
+                      },
+                      "stereotypeLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_STEREOTYPE_39"
+                      },
+                      "propertyLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_PROPERTY_40"
+                      },
+                      "activation": {
+                        "$ref": "LAB4_VIEW_ACTIVATION_41"
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "LAB4_VIEW_MESSAGE_42",
+                      "_parent": {
+                        "$ref": "LAB4_SEQUENCE_DIAGRAM"
+                      },
+                      "model": {
+                        "$ref": "LAB4_MESSAGE_3_REQUEST"
+                      },
+                      "subViews": [
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_NAME_43",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_42"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_3_REQUEST"
+                          },
+                          "font": "Arial;12;0",
+                          "left": 178,
+                          "top": 285,
+                          "width": 884,
+                          "height": 15,
+                          "text": "3: POST /api/insulation-materials(fields, image, video, Cookie: sessionId)",
+                          "alpha": 1.5708,
+                          "distance": 10,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_42"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_STEREOTYPE_44",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_42"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_3_REQUEST"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 273,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_42"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_PROPERTY_45",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_42"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_3_REQUEST"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 307,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_42"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "UMLActivationView",
+                          "_id": "LAB4_VIEW_ACTIVATION_46",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_42"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_3_REQUEST"
+                          },
+                          "visible": true,
+                          "font": "Arial;13;0",
+                          "left": 1063,
+                          "top": 303,
+                          "width": 14,
+                          "height": 40
+                        }
+                      ],
+                      "font": "Arial;13;0",
+                      "lineMode": 0,
+                      "head": {
+                        "$ref": "LAB4_VIEW_LINE_21"
+                      },
+                      "tail": {
+                        "$ref": "LAB4_VIEW_LINE_7"
+                      },
+                      "points": "170:303;1070:303",
+                      "nameLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_NAME_43"
+                      },
+                      "stereotypeLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_STEREOTYPE_44"
+                      },
+                      "propertyLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_PROPERTY_45"
+                      },
+                      "activation": {
+                        "$ref": "LAB4_VIEW_ACTIVATION_46"
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "LAB4_VIEW_MESSAGE_47",
+                      "_parent": {
+                        "$ref": "LAB4_SEQUENCE_DIAGRAM"
+                      },
+                      "model": {
+                        "$ref": "LAB4_MESSAGE_3_RESPONSE"
+                      },
+                      "subViews": [
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_NAME_48",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_47"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_3_RESPONSE"
+                          },
+                          "font": "Arial;12;0",
+                          "left": 178,
+                          "top": 325,
+                          "width": 884,
+                          "height": 15,
+                          "text": "201(draftId, creatorId, status)",
+                          "alpha": 1.5708,
+                          "distance": 10,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_47"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_STEREOTYPE_49",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_47"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_3_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 313,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_47"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_PROPERTY_50",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_47"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_3_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 347,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_47"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "UMLActivationView",
+                          "_id": "LAB4_VIEW_ACTIVATION_51",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_47"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_3_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 163,
+                          "top": 343,
+                          "width": 14,
+                          "height": 25
+                        }
+                      ],
+                      "font": "Arial;13;0",
+                      "lineMode": 1,
+                      "head": {
+                        "$ref": "LAB4_VIEW_LINE_7"
+                      },
+                      "tail": {
+                        "$ref": "LAB4_VIEW_LINE_21"
+                      },
+                      "points": "1070:343;170:343",
+                      "nameLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_NAME_48"
+                      },
+                      "stereotypeLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_STEREOTYPE_49"
+                      },
+                      "propertyLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_PROPERTY_50"
+                      },
+                      "activation": {
+                        "$ref": "LAB4_VIEW_ACTIVATION_51"
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "LAB4_VIEW_MESSAGE_52",
+                      "_parent": {
+                        "$ref": "LAB4_SEQUENCE_DIAGRAM"
+                      },
+                      "model": {
+                        "$ref": "LAB4_MESSAGE_4_REQUEST"
+                      },
+                      "subViews": [
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_NAME_53",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_52"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_4_REQUEST"
+                          },
+                          "font": "Arial;12;0",
+                          "left": 178,
+                          "top": 379,
+                          "width": 884,
+                          "height": 15,
+                          "text": "4: GET /api/insulation-materials/draft(Cookie: sessionId)",
+                          "alpha": 1.5708,
+                          "distance": 10,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_52"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_STEREOTYPE_54",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_52"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_4_REQUEST"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 367,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_52"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_PROPERTY_55",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_52"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_4_REQUEST"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 401,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_52"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "UMLActivationView",
+                          "_id": "LAB4_VIEW_ACTIVATION_56",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_52"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_4_REQUEST"
+                          },
+                          "visible": true,
+                          "font": "Arial;13;0",
+                          "left": 1063,
+                          "top": 397,
+                          "width": 14,
+                          "height": 40
+                        }
+                      ],
+                      "font": "Arial;13;0",
+                      "lineMode": 0,
+                      "head": {
+                        "$ref": "LAB4_VIEW_LINE_21"
+                      },
+                      "tail": {
+                        "$ref": "LAB4_VIEW_LINE_7"
+                      },
+                      "points": "170:397;1070:397",
+                      "nameLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_NAME_53"
+                      },
+                      "stereotypeLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_STEREOTYPE_54"
+                      },
+                      "propertyLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_PROPERTY_55"
+                      },
+                      "activation": {
+                        "$ref": "LAB4_VIEW_ACTIVATION_56"
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "LAB4_VIEW_MESSAGE_57",
+                      "_parent": {
+                        "$ref": "LAB4_SEQUENCE_DIAGRAM"
+                      },
+                      "model": {
+                        "$ref": "LAB4_MESSAGE_4_RESPONSE"
+                      },
+                      "subViews": [
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_NAME_58",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_57"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_4_RESPONSE"
+                          },
+                          "font": "Arial;12;0",
+                          "left": 178,
+                          "top": 419,
+                          "width": 884,
+                          "height": 15,
+                          "text": "200(draft fields)",
+                          "alpha": 1.5708,
+                          "distance": 10,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_57"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_STEREOTYPE_59",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_57"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_4_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 407,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_57"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_PROPERTY_60",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_57"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_4_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 441,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_57"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "UMLActivationView",
+                          "_id": "LAB4_VIEW_ACTIVATION_61",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_57"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_4_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 163,
+                          "top": 437,
+                          "width": 14,
+                          "height": 25
+                        }
+                      ],
+                      "font": "Arial;13;0",
+                      "lineMode": 1,
+                      "head": {
+                        "$ref": "LAB4_VIEW_LINE_7"
+                      },
+                      "tail": {
+                        "$ref": "LAB4_VIEW_LINE_21"
+                      },
+                      "points": "1070:437;170:437",
+                      "nameLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_NAME_58"
+                      },
+                      "stereotypeLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_STEREOTYPE_59"
+                      },
+                      "propertyLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_PROPERTY_60"
+                      },
+                      "activation": {
+                        "$ref": "LAB4_VIEW_ACTIVATION_61"
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "LAB4_VIEW_MESSAGE_62",
+                      "_parent": {
+                        "$ref": "LAB4_SEQUENCE_DIAGRAM"
+                      },
+                      "model": {
+                        "$ref": "LAB4_MESSAGE_5_REQUEST"
+                      },
+                      "subViews": [
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_NAME_63",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_62"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_5_REQUEST"
+                          },
+                          "font": "Arial;12;0",
+                          "left": 178,
+                          "top": 473,
+                          "width": 884,
+                          "height": 15,
+                          "text": "5: PUT /api/insulation-materials/{id}/publish(id, Cookie: sessionId)",
+                          "alpha": 1.5708,
+                          "distance": 10,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_62"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_STEREOTYPE_64",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_62"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_5_REQUEST"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 461,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_62"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_PROPERTY_65",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_62"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_5_REQUEST"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 495,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_62"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "UMLActivationView",
+                          "_id": "LAB4_VIEW_ACTIVATION_66",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_62"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_5_REQUEST"
+                          },
+                          "visible": true,
+                          "font": "Arial;13;0",
+                          "left": 1063,
+                          "top": 491,
+                          "width": 14,
+                          "height": 40
+                        }
+                      ],
+                      "font": "Arial;13;0",
+                      "lineMode": 0,
+                      "head": {
+                        "$ref": "LAB4_VIEW_LINE_21"
+                      },
+                      "tail": {
+                        "$ref": "LAB4_VIEW_LINE_7"
+                      },
+                      "points": "170:491;1070:491",
+                      "nameLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_NAME_63"
+                      },
+                      "stereotypeLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_STEREOTYPE_64"
+                      },
+                      "propertyLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_PROPERTY_65"
+                      },
+                      "activation": {
+                        "$ref": "LAB4_VIEW_ACTIVATION_66"
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "LAB4_VIEW_MESSAGE_67",
+                      "_parent": {
+                        "$ref": "LAB4_SEQUENCE_DIAGRAM"
+                      },
+                      "model": {
+                        "$ref": "LAB4_MESSAGE_5_RESPONSE"
+                      },
+                      "subViews": [
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_NAME_68",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_67"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_5_RESPONSE"
+                          },
+                          "font": "Arial;12;0",
+                          "left": 178,
+                          "top": 513,
+                          "width": 884,
+                          "height": 15,
+                          "text": "200(status=published, publishedAt)",
+                          "alpha": 1.5708,
+                          "distance": 10,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_67"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_STEREOTYPE_69",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_67"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_5_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 501,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_67"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_PROPERTY_70",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_67"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_5_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 535,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_67"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "UMLActivationView",
+                          "_id": "LAB4_VIEW_ACTIVATION_71",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_67"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_5_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 163,
+                          "top": 531,
+                          "width": 14,
+                          "height": 25
+                        }
+                      ],
+                      "font": "Arial;13;0",
+                      "lineMode": 1,
+                      "head": {
+                        "$ref": "LAB4_VIEW_LINE_7"
+                      },
+                      "tail": {
+                        "$ref": "LAB4_VIEW_LINE_21"
+                      },
+                      "points": "1070:531;170:531",
+                      "nameLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_NAME_68"
+                      },
+                      "stereotypeLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_STEREOTYPE_69"
+                      },
+                      "propertyLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_PROPERTY_70"
+                      },
+                      "activation": {
+                        "$ref": "LAB4_VIEW_ACTIVATION_71"
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "LAB4_VIEW_MESSAGE_72",
+                      "_parent": {
+                        "$ref": "LAB4_SEQUENCE_DIAGRAM"
+                      },
+                      "model": {
+                        "$ref": "LAB4_MESSAGE_6_REQUEST"
+                      },
+                      "subViews": [
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_NAME_73",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_72"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_6_REQUEST"
+                          },
+                          "font": "Arial;12;0",
+                          "left": 178,
+                          "top": 567,
+                          "width": 884,
+                          "height": 15,
+                          "text": "6: GET /api/insulation-materials/feed(без id)",
+                          "alpha": 1.5708,
+                          "distance": 10,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_72"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_STEREOTYPE_74",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_72"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_6_REQUEST"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 555,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_72"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_PROPERTY_75",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_72"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_6_REQUEST"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 589,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_72"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "UMLActivationView",
+                          "_id": "LAB4_VIEW_ACTIVATION_76",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_72"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_6_REQUEST"
+                          },
+                          "visible": true,
+                          "font": "Arial;13;0",
+                          "left": 1063,
+                          "top": 585,
+                          "width": 14,
+                          "height": 40
+                        }
+                      ],
+                      "font": "Arial;13;0",
+                      "lineMode": 0,
+                      "head": {
+                        "$ref": "LAB4_VIEW_LINE_21"
+                      },
+                      "tail": {
+                        "$ref": "LAB4_VIEW_LINE_7"
+                      },
+                      "points": "170:585;1070:585",
+                      "nameLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_NAME_73"
+                      },
+                      "stereotypeLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_STEREOTYPE_74"
+                      },
+                      "propertyLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_PROPERTY_75"
+                      },
+                      "activation": {
+                        "$ref": "LAB4_VIEW_ACTIVATION_76"
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "LAB4_VIEW_MESSAGE_77",
+                      "_parent": {
+                        "$ref": "LAB4_SEQUENCE_DIAGRAM"
+                      },
+                      "model": {
+                        "$ref": "LAB4_MESSAGE_6_RESPONSE"
+                      },
+                      "subViews": [
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_NAME_78",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_77"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_6_RESPONSE"
+                          },
+                          "font": "Arial;12;0",
+                          "left": 178,
+                          "top": 607,
+                          "width": 884,
+                          "height": 15,
+                          "text": "200(itemId, liked, likesCount)",
+                          "alpha": 1.5708,
+                          "distance": 10,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_77"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_STEREOTYPE_79",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_77"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_6_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 595,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_77"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_PROPERTY_80",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_77"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_6_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 629,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_77"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "UMLActivationView",
+                          "_id": "LAB4_VIEW_ACTIVATION_81",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_77"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_6_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 163,
+                          "top": 625,
+                          "width": 14,
+                          "height": 25
+                        }
+                      ],
+                      "font": "Arial;13;0",
+                      "lineMode": 1,
+                      "head": {
+                        "$ref": "LAB4_VIEW_LINE_7"
+                      },
+                      "tail": {
+                        "$ref": "LAB4_VIEW_LINE_21"
+                      },
+                      "points": "1070:625;170:625",
+                      "nameLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_NAME_78"
+                      },
+                      "stereotypeLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_STEREOTYPE_79"
+                      },
+                      "propertyLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_PROPERTY_80"
+                      },
+                      "activation": {
+                        "$ref": "LAB4_VIEW_ACTIVATION_81"
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "LAB4_VIEW_MESSAGE_82",
+                      "_parent": {
+                        "$ref": "LAB4_SEQUENCE_DIAGRAM"
+                      },
+                      "model": {
+                        "$ref": "LAB4_MESSAGE_7_REQUEST"
+                      },
+                      "subViews": [
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_NAME_83",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_82"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_7_REQUEST"
+                          },
+                          "font": "Arial;12;0",
+                          "left": 178,
+                          "top": 661,
+                          "width": 884,
+                          "height": 15,
+                          "text": "7: GET /api/insulation-materials/feed/{id}?next=true(id, next=true)",
+                          "alpha": 1.5708,
+                          "distance": 10,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_82"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_STEREOTYPE_84",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_82"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_7_REQUEST"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 649,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_82"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_PROPERTY_85",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_82"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_7_REQUEST"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 683,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_82"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "UMLActivationView",
+                          "_id": "LAB4_VIEW_ACTIVATION_86",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_82"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_7_REQUEST"
+                          },
+                          "visible": true,
+                          "font": "Arial;13;0",
+                          "left": 1063,
+                          "top": 679,
+                          "width": 14,
+                          "height": 40
+                        }
+                      ],
+                      "font": "Arial;13;0",
+                      "lineMode": 0,
+                      "head": {
+                        "$ref": "LAB4_VIEW_LINE_21"
+                      },
+                      "tail": {
+                        "$ref": "LAB4_VIEW_LINE_7"
+                      },
+                      "points": "170:679;1070:679",
+                      "nameLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_NAME_83"
+                      },
+                      "stereotypeLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_STEREOTYPE_84"
+                      },
+                      "propertyLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_PROPERTY_85"
+                      },
+                      "activation": {
+                        "$ref": "LAB4_VIEW_ACTIVATION_86"
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "LAB4_VIEW_MESSAGE_87",
+                      "_parent": {
+                        "$ref": "LAB4_SEQUENCE_DIAGRAM"
+                      },
+                      "model": {
+                        "$ref": "LAB4_MESSAGE_7_RESPONSE"
+                      },
+                      "subViews": [
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_NAME_88",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_87"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_7_RESPONSE"
+                          },
+                          "font": "Arial;12;0",
+                          "left": 178,
+                          "top": 701,
+                          "width": 884,
+                          "height": 15,
+                          "text": "200(next item)",
+                          "alpha": 1.5708,
+                          "distance": 10,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_87"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_STEREOTYPE_89",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_87"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_7_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 689,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_87"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_PROPERTY_90",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_87"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_7_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 723,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_87"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "UMLActivationView",
+                          "_id": "LAB4_VIEW_ACTIVATION_91",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_87"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_7_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 163,
+                          "top": 719,
+                          "width": 14,
+                          "height": 25
+                        }
+                      ],
+                      "font": "Arial;13;0",
+                      "lineMode": 1,
+                      "head": {
+                        "$ref": "LAB4_VIEW_LINE_7"
+                      },
+                      "tail": {
+                        "$ref": "LAB4_VIEW_LINE_21"
+                      },
+                      "points": "1070:719;170:719",
+                      "nameLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_NAME_88"
+                      },
+                      "stereotypeLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_STEREOTYPE_89"
+                      },
+                      "propertyLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_PROPERTY_90"
+                      },
+                      "activation": {
+                        "$ref": "LAB4_VIEW_ACTIVATION_91"
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "LAB4_VIEW_MESSAGE_92",
+                      "_parent": {
+                        "$ref": "LAB4_SEQUENCE_DIAGRAM"
+                      },
+                      "model": {
+                        "$ref": "LAB4_MESSAGE_8_REQUEST"
+                      },
+                      "subViews": [
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_NAME_93",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_92"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_8_REQUEST"
+                          },
+                          "font": "Arial;12;0",
+                          "left": 178,
+                          "top": 755,
+                          "width": 884,
+                          "height": 15,
+                          "text": "8: POST /api/insulation-materials/{id}/like(id, liked=true, Cookie: sessionId)",
+                          "alpha": 1.5708,
+                          "distance": 10,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_92"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_STEREOTYPE_94",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_92"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_8_REQUEST"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 743,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_92"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_PROPERTY_95",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_92"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_8_REQUEST"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 777,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_92"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "UMLActivationView",
+                          "_id": "LAB4_VIEW_ACTIVATION_96",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_92"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_8_REQUEST"
+                          },
+                          "visible": true,
+                          "font": "Arial;13;0",
+                          "left": 1063,
+                          "top": 773,
+                          "width": 14,
+                          "height": 40
+                        }
+                      ],
+                      "font": "Arial;13;0",
+                      "lineMode": 0,
+                      "head": {
+                        "$ref": "LAB4_VIEW_LINE_21"
+                      },
+                      "tail": {
+                        "$ref": "LAB4_VIEW_LINE_7"
+                      },
+                      "points": "170:773;1070:773",
+                      "nameLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_NAME_93"
+                      },
+                      "stereotypeLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_STEREOTYPE_94"
+                      },
+                      "propertyLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_PROPERTY_95"
+                      },
+                      "activation": {
+                        "$ref": "LAB4_VIEW_ACTIVATION_96"
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "LAB4_VIEW_MESSAGE_97",
+                      "_parent": {
+                        "$ref": "LAB4_SEQUENCE_DIAGRAM"
+                      },
+                      "model": {
+                        "$ref": "LAB4_MESSAGE_8_RESPONSE"
+                      },
+                      "subViews": [
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_NAME_98",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_97"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_8_RESPONSE"
+                          },
+                          "font": "Arial;12;0",
+                          "left": 178,
+                          "top": 795,
+                          "width": 884,
+                          "height": 15,
+                          "text": "201(liked=true, likesCount)",
+                          "alpha": 1.5708,
+                          "distance": 10,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_97"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_STEREOTYPE_99",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_97"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_8_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 783,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_97"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "EdgeLabelView",
+                          "_id": "LAB4_VIEW_MESSAGE_PROPERTY_100",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_97"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_8_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 178,
+                          "top": 817,
+                          "height": 13,
+                          "hostEdge": {
+                            "$ref": "LAB4_VIEW_MESSAGE_97"
+                          },
+                          "edgePosition": 1
+                        },
+                        {
+                          "_type": "UMLActivationView",
+                          "_id": "LAB4_VIEW_ACTIVATION_101",
+                          "_parent": {
+                            "$ref": "LAB4_VIEW_MESSAGE_97"
+                          },
+                          "model": {
+                            "$ref": "LAB4_MESSAGE_8_RESPONSE"
+                          },
+                          "visible": false,
+                          "font": "Arial;13;0",
+                          "left": 163,
+                          "top": 813,
+                          "width": 14,
+                          "height": 25
+                        }
+                      ],
+                      "font": "Arial;13;0",
+                      "lineMode": 1,
+                      "head": {
+                        "$ref": "LAB4_VIEW_LINE_7"
+                      },
+                      "tail": {
+                        "$ref": "LAB4_VIEW_LINE_21"
+                      },
+                      "points": "1070:813;170:813",
+                      "nameLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_NAME_98"
+                      },
+                      "stereotypeLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_STEREOTYPE_99"
+                      },
+                      "propertyLabel": {
+                        "$ref": "LAB4_VIEW_MESSAGE_PROPERTY_100"
+                      },
+                      "activation": {
+                        "$ref": "LAB4_VIEW_ACTIVATION_101"
+                      }
+                    }
+                  ],
+                  "showSequenceNumber": true
+                }
+              ],
+              "participants": [
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "LAB4_LIFELINE_CLIENT",
+                  "_parent": {
+                    "$ref": "LAB4_INTERACTION"
+                  },
+                  "represent": {
+                    "$ref": "LAB4_ROLE_CLIENT"
+                  },
+                  "isMultiInstance": false
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "LAB4_LIFELINE_USERSAPI",
+                  "_parent": {
+                    "$ref": "LAB4_INTERACTION"
+                  },
+                  "represent": {
+                    "$ref": "LAB4_ROLE_USERSAPI"
+                  },
+                  "isMultiInstance": false
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "LAB4_LIFELINE_MATERIALSAPI",
+                  "_parent": {
+                    "$ref": "LAB4_INTERACTION"
+                  },
+                  "represent": {
+                    "$ref": "LAB4_ROLE_MATERIALSAPI"
+                  },
+                  "isMultiInstance": false
+                }
+              ],
+              "messages": [
+                {
+                  "_type": "UMLMessage",
+                  "_id": "LAB4_MESSAGE_1_REQUEST",
+                  "_parent": {
+                    "$ref": "LAB4_INTERACTION"
+                  },
+                  "name": "authenticate",
+                  "stereotype": "POST",
+                  "source": {
+                    "$ref": "LAB4_LIFELINE_CLIENT"
+                  },
+                  "target": {
+                    "$ref": "LAB4_LIFELINE_USERSAPI"
+                  },
+                  "signature": {
+                    "$ref": "LAB4_OP_AUTHENTICATE"
+                  },
+                  "arguments": "email, password"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "LAB4_MESSAGE_1_RESPONSE",
+                  "_parent": {
+                    "$ref": "LAB4_INTERACTION"
+                  },
+                  "name": "200(user, Set-Cookie: sessionId)",
+                  "source": {
+                    "$ref": "LAB4_LIFELINE_USERSAPI"
+                  },
+                  "target": {
+                    "$ref": "LAB4_LIFELINE_CLIENT"
+                  },
+                  "messageSort": "reply",
+                  "arguments": "200(user, Set-Cookie: sessionId)"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "LAB4_MESSAGE_2_REQUEST",
+                  "_parent": {
+                    "$ref": "LAB4_INTERACTION"
+                  },
+                  "name": "list",
+                  "stereotype": "GET",
+                  "source": {
+                    "$ref": "LAB4_LIFELINE_CLIENT"
+                  },
+                  "target": {
+                    "$ref": "LAB4_LIFELINE_MATERIALSAPI"
+                  },
+                  "signature": {
+                    "$ref": "LAB4_OP_LIST"
+                  },
+                  "arguments": "maxThicknessMm=100, insulationType=\"Минвата\""
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "LAB4_MESSAGE_2_RESPONSE",
+                  "_parent": {
+                    "$ref": "LAB4_INTERACTION"
+                  },
+                  "name": "200(items[], count)",
+                  "source": {
+                    "$ref": "LAB4_LIFELINE_MATERIALSAPI"
+                  },
+                  "target": {
+                    "$ref": "LAB4_LIFELINE_CLIENT"
+                  },
+                  "messageSort": "reply",
+                  "arguments": "200(items[], count)"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "LAB4_MESSAGE_3_REQUEST",
+                  "_parent": {
+                    "$ref": "LAB4_INTERACTION"
+                  },
+                  "name": "create",
+                  "stereotype": "POST",
+                  "source": {
+                    "$ref": "LAB4_LIFELINE_CLIENT"
+                  },
+                  "target": {
+                    "$ref": "LAB4_LIFELINE_MATERIALSAPI"
+                  },
+                  "signature": {
+                    "$ref": "LAB4_OP_CREATE"
+                  },
+                  "arguments": "fields, image, video, Cookie: sessionId"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "LAB4_MESSAGE_3_RESPONSE",
+                  "_parent": {
+                    "$ref": "LAB4_INTERACTION"
+                  },
+                  "name": "201(draftId, creatorId, status)",
+                  "source": {
+                    "$ref": "LAB4_LIFELINE_MATERIALSAPI"
+                  },
+                  "target": {
+                    "$ref": "LAB4_LIFELINE_CLIENT"
+                  },
+                  "messageSort": "reply",
+                  "arguments": "201(draftId, creatorId, status)"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "LAB4_MESSAGE_4_REQUEST",
+                  "_parent": {
+                    "$ref": "LAB4_INTERACTION"
+                  },
+                  "name": "draft",
+                  "stereotype": "GET",
+                  "source": {
+                    "$ref": "LAB4_LIFELINE_CLIENT"
+                  },
+                  "target": {
+                    "$ref": "LAB4_LIFELINE_MATERIALSAPI"
+                  },
+                  "signature": {
+                    "$ref": "LAB4_OP_DRAFT"
+                  },
+                  "arguments": "Cookie: sessionId"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "LAB4_MESSAGE_4_RESPONSE",
+                  "_parent": {
+                    "$ref": "LAB4_INTERACTION"
+                  },
+                  "name": "200(draft fields)",
+                  "source": {
+                    "$ref": "LAB4_LIFELINE_MATERIALSAPI"
+                  },
+                  "target": {
+                    "$ref": "LAB4_LIFELINE_CLIENT"
+                  },
+                  "messageSort": "reply",
+                  "arguments": "200(draft fields)"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "LAB4_MESSAGE_5_REQUEST",
+                  "_parent": {
+                    "$ref": "LAB4_INTERACTION"
+                  },
+                  "name": "publish",
+                  "stereotype": "PUT",
+                  "source": {
+                    "$ref": "LAB4_LIFELINE_CLIENT"
+                  },
+                  "target": {
+                    "$ref": "LAB4_LIFELINE_MATERIALSAPI"
+                  },
+                  "signature": {
+                    "$ref": "LAB4_OP_PUBLISH"
+                  },
+                  "arguments": "id, Cookie: sessionId"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "LAB4_MESSAGE_5_RESPONSE",
+                  "_parent": {
+                    "$ref": "LAB4_INTERACTION"
+                  },
+                  "name": "200(status=published, publishedAt)",
+                  "source": {
+                    "$ref": "LAB4_LIFELINE_MATERIALSAPI"
+                  },
+                  "target": {
+                    "$ref": "LAB4_LIFELINE_CLIENT"
+                  },
+                  "messageSort": "reply",
+                  "arguments": "200(status=published, publishedAt)"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "LAB4_MESSAGE_6_REQUEST",
+                  "_parent": {
+                    "$ref": "LAB4_INTERACTION"
+                  },
+                  "name": "feed",
+                  "stereotype": "GET",
+                  "source": {
+                    "$ref": "LAB4_LIFELINE_CLIENT"
+                  },
+                  "target": {
+                    "$ref": "LAB4_LIFELINE_MATERIALSAPI"
+                  },
+                  "signature": {
+                    "$ref": "LAB4_OP_FEEDSTART"
+                  },
+                  "arguments": "без id"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "LAB4_MESSAGE_6_RESPONSE",
+                  "_parent": {
+                    "$ref": "LAB4_INTERACTION"
+                  },
+                  "name": "200(itemId, liked, likesCount)",
+                  "source": {
+                    "$ref": "LAB4_LIFELINE_MATERIALSAPI"
+                  },
+                  "target": {
+                    "$ref": "LAB4_LIFELINE_CLIENT"
+                  },
+                  "messageSort": "reply",
+                  "arguments": "200(itemId, liked, likesCount)"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "LAB4_MESSAGE_7_REQUEST",
+                  "_parent": {
+                    "$ref": "LAB4_INTERACTION"
+                  },
+                  "name": "feed",
+                  "stereotype": "GET",
+                  "source": {
+                    "$ref": "LAB4_LIFELINE_CLIENT"
+                  },
+                  "target": {
+                    "$ref": "LAB4_LIFELINE_MATERIALSAPI"
+                  },
+                  "signature": {
+                    "$ref": "LAB4_OP_FEEDNEXT"
+                  },
+                  "arguments": "id, next=true"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "LAB4_MESSAGE_7_RESPONSE",
+                  "_parent": {
+                    "$ref": "LAB4_INTERACTION"
+                  },
+                  "name": "200(next item)",
+                  "source": {
+                    "$ref": "LAB4_LIFELINE_MATERIALSAPI"
+                  },
+                  "target": {
+                    "$ref": "LAB4_LIFELINE_CLIENT"
+                  },
+                  "messageSort": "reply",
+                  "arguments": "200(next item)"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "LAB4_MESSAGE_8_REQUEST",
+                  "_parent": {
+                    "$ref": "LAB4_INTERACTION"
+                  },
+                  "name": "setLike",
+                  "stereotype": "POST",
+                  "source": {
+                    "$ref": "LAB4_LIFELINE_CLIENT"
+                  },
+                  "target": {
+                    "$ref": "LAB4_LIFELINE_MATERIALSAPI"
+                  },
+                  "signature": {
+                    "$ref": "LAB4_OP_SETLIKE"
+                  },
+                  "arguments": "id, liked=true, Cookie: sessionId"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "LAB4_MESSAGE_8_RESPONSE",
+                  "_parent": {
+                    "$ref": "LAB4_INTERACTION"
+                  },
+                  "name": "201(liked=true, likesCount)",
+                  "source": {
+                    "$ref": "LAB4_LIFELINE_MATERIALSAPI"
+                  },
+                  "target": {
+                    "$ref": "LAB4_LIFELINE_CLIENT"
+                  },
+                  "messageSort": "reply",
+                  "arguments": "201(liked=true, likesCount)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

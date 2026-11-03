@@ -1,0 +1,29 @@
+{{> insulation-materials-head}}
+<main class="insulation-materials-viewport">
+  <section class="insulation-materials-scroll insulation-materials-draft" aria-label="Добавление теплоизоляционного материала">
+    <header>{{> insulation-materials-brand}}{{#if insulationMaterialsHasDraft}}<span>ЧЕРНОВИК</span>{{/if}}</header>
+    {{#if insulationMaterialsHasDraft}}
+    <h1>Публикация материала</h1>
+    <p class="insulation-materials-form-help">Заполните три обязательных поля. Фото и видео используются по умолчанию.</p>
+    <form class="insulation-materials-panel" action="/insulation-materials/publish" method="post">
+      <h2>{{insulationMaterial.insulationMaterialName}}</h2>
+      <label>Краткая информация <b>обязательно</b><textarea name="insulationMaterialDescription" maxlength="300" required>{{insulationMaterial.insulationMaterialDescription}}</textarea></label>
+      <label>Тип утеплителя <b>обязательно</b><input name="insulationMaterialType" maxlength="50" value="{{insulationMaterial.insulationMaterialType}}" required></label>
+      <label>Толщина, мм <b>обязательно</b><input name="insulationMaterialThicknessMm" type="number" min="1" max="1000" value="{{insulationMaterial.insulationMaterialThicknessMm}}" required></label>
+      <button class="insulation-materials-button" type="submit">Опубликовать</button>
+    </form>
+    {{else}}
+    <h1>Добавление материала</h1>
+    <form class="insulation-materials-panel" action="/insulation-materials/draft" method="post">
+      <label>Название материала<input name="insulationMaterialName" maxlength="120" required></label>
+      <div class="insulation-materials-media-stack">
+        <section><span>Фото</span><img src="/insulation-materials-assets/default-media/default-insulation.jpg" alt="Фото по умолчанию"><label class="insulation-materials-file-button" for="insulationMaterialsImageFile">Выбрать фото</label><input id="insulationMaterialsImageFile" class="insulation-materials-file-input" type="file" accept="image/*"></section>
+        <section><span>Видео</span><video controls muted playsinline><source src="/insulation-materials-assets/default-media/default-insulation.mp4" type="video/mp4"></video><label class="insulation-materials-file-button" for="insulationMaterialsVideoFile">Выбрать видео</label><input id="insulationMaterialsVideoFile" class="insulation-materials-file-input" type="file" accept="video/*"></section>
+      </div>
+      <button class="insulation-materials-button" type="submit">Далее</button>
+    </form>
+    {{/if}}
+  </section>
+  {{> insulation-materials-tabs}}
+</main>
+</body></html>

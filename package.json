@@ -1,0 +1,37 @@
+{
+  "name": "teploshchit-insulation-backend-lab4",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node --env-file-if-exists=.env dist/main.js",
+    "start:dev": "npm run build && npm start",
+    "test": "npm run build && node --env-file-if-exists=.env --experimental-strip-types --test --test-concurrency=1 test/lab4-auth.test.ts",
+    "services:up": "docker compose up -d",
+    "services:down": "docker compose down"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.0",
+    "@nestjs/core": "^11.1.0",
+    "@nestjs/platform-express": "^11.1.0",
+    "@nestjs/swagger": "^11.2.1",
+    "@nestjs/typeorm": "^11.0.0",
+    "cookie-parser": "^1.4.7",
+    "hbs": "^4.2.0",
+    "ioredis": "^5.8.1",
+    "minio": "^8.0.0",
+    "pg": "^8.16.3",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "typeorm": "^0.3.26"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.9",
+    "@types/express": "^5.0.0",
+    "@types/hbs": "^4.0.5",
+    "@types/node": "^24.0.0",
+    "ffmpeg-static": "^5.2.0",
+    "sharp": "^0.34.0",
+    "typescript": "^5.9.0"
+  }
+}

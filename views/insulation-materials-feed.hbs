@@ -1,0 +1,19 @@
+{{> insulation-materials-head}}
+<main class="insulation-materials-viewport insulation-materials-feed">
+  <section class="insulation-materials-video-stage" aria-label="Лента теплоизоляционных материалов">
+    <video class="insulation-materials-video" autoplay muted playsinline preload="auto" poster="{{insulationMaterial.insulationMaterialPosterUrl}}"><source src="{{insulationMaterial.insulationMaterialVideoUrl}}" type="video/mp4"><source src="{{insulationMaterial.insulationMaterialDefaultVideoUrl}}" type="video/mp4"></video>
+    <div class="insulation-materials-shade" aria-hidden="true"></div>
+    {{> insulation-materials-brand}}
+    <div class="insulation-materials-feed-copy">
+      <h1>{{insulationMaterial.insulationMaterialName}}</h1>
+      <details><summary><span>{{insulationMaterial.insulationMaterialBrief}}</span><b>Подробнее</b></summary><p><strong>Тип утеплителя:</strong> {{insulationMaterial.insulationMaterialType}}</p><p><strong>Толщина:</strong> {{insulationMaterial.insulationMaterialThicknessMm}} мм</p><p>{{insulationMaterial.insulationMaterialDescription}}</p></details>
+    </div>
+    <aside class="insulation-materials-feed-tools">
+      <span class="insulation-materials-kind">{{insulationMaterial.insulationMaterialType}}</span>
+      <div class="insulation-materials-feed-likes"><span>♡</span><strong>{{insulationMaterial.insulationMaterialLikeCount}}</strong></div>
+      <a class="insulation-materials-next" href="/insulation-materials/feed/{{insulationMaterial.insulationMaterialId}}?next=true"><strong>→</strong><span>Следующий</span></a>
+    </aside>
+  </section>
+  {{> insulation-materials-tabs}}
+</main>
+</body></html>

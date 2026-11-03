@@ -1,0 +1,125 @@
+{
+  "info": {
+    "_postman_id": "d35781ee-92a7-4c24-b50f-f30023809001",
+    "name": "Лабораторная 4 — Теплощит — авторизация",
+    "description": "Коллекция для скриншотов 4–8 лабораторной работы №4. Скриншоты 1–3 выполняются в Swagger в режиме инкогнито. Перед показом выполните database/lab4-demo-prepare.sql. Из Application → Cookies скопируйте sessionId в переменную ownerSessionId.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3001" },
+    { "key": "materialId", "value": "9001" },
+    { "key": "ownerSessionId", "value": "PASTE_SESSION_ID_FROM_BROWSER" },
+    { "key": "otherSessionId", "value": "" },
+    { "key": "password", "value": "Teplo123!" }
+  ],
+  "item": [
+    {
+      "name": "00 — Подготовка: вход другого пользователя",
+      "event": [{
+        "listen": "test",
+        "script": { "exec": [
+          "pm.test('Аутентификация успешна', () => pm.response.to.have.status(200));",
+          "const setCookie = pm.response.headers.get('Set-Cookie') || '';",
+          "const match = setCookie.match(/sessionId=([^;]+)/);",
+          "pm.expect(match, 'В ответе есть sessionId').to.not.equal(null);",
+          "if (match) pm.collectionVariables.set('otherSessionId', match[1]);"
+        ] }
+      }],
+      "request": {
+        "description": "Не входит в скриншоты. Сохраняет сессию user2, чтобы показать 403 при попытке опубликовать чужой черновик.",
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"email\": \"user2@teploshchit.local\",\n  \"password\": \"{{password}}\"\n}" },
+        "url": "{{baseUrl}}/api/users/authenticate"
+      }
+    },
+    {
+      "name": "04 — GET всех услуг без cookie",
+      "event": [{ "listen": "test", "script": { "exec": [
+        "pm.test('Публичное чтение — 200', () => pm.response.to.have.status(200));"
+      ] } }],
+      "request": {
+        "description": "Скриншот 4. Cookie Jar отключён: запрос гарантированно идёт от гостя.",
+        "method": "GET",
+        "header": [{ "key": "Accept", "value": "application/json" }],
+        "url": "{{baseUrl}}/api/insulation-materials"
+      },
+      "protocolProfileBehavior": { "disableCookieJar": true }
+    },
+    {
+      "name": "05 — GET всех услуг с неверной cookie",
+      "event": [{ "listen": "test", "script": { "exec": [
+        "pm.test('Чтение не зависит от cookie', () => pm.response.to.have.status(200));"
+      ] } }],
+      "request": {
+        "description": "Скриншот 5. Даже недействительная cookie не блокирует публичный GET.",
+        "method": "GET",
+        "header": [
+          { "key": "Accept", "value": "application/json" },
+          { "key": "Cookie", "value": "sessionId=invalid-session" }
+        ],
+        "url": "{{baseUrl}}/api/insulation-materials"
+      },
+      "protocolProfileBehavior": { "disableCookieJar": true }
+    },
+    {
+      "name": "06 — PUT публикации гостем — 401",
+      "event": [{ "listen": "test", "script": { "exec": [
+        "pm.test('Гость получает 401', () => pm.response.to.have.status(401));"
+      ] } }],
+      "request": {
+        "description": "Скриншот 6. Без sessionId сервер не знает, кто выполняет запрос, и возвращает 401.",
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{}" },
+        "url": "{{baseUrl}}/api/insulation-materials/{{materialId}}/publish"
+      },
+      "protocolProfileBehavior": { "disableCookieJar": true }
+    },
+    {
+      "name": "06а — PUT чужого черновика — 403",
+      "event": [{ "listen": "test", "script": { "exec": [
+        "pm.test('Другой пользователь получает 403', () => pm.response.to.have.status(403));"
+      ] } }],
+      "request": {
+        "description": "Дополнительно показывает разницу 401 и 403: user2 аутентифицирован, но не владеет черновиком user1.",
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Cookie", "value": "sessionId={{otherSessionId}}" }
+        ],
+        "body": { "mode": "raw", "raw": "{}" },
+        "url": "{{baseUrl}}/api/insulation-materials/{{materialId}}/publish"
+      },
+      "protocolProfileBehavior": { "disableCookieJar": true }
+    },
+    {
+      "name": "07 — PUT публикации создателем — 200",
+      "event": [{ "listen": "test", "script": { "exec": [
+        "pm.test('Создатель публикует услугу', () => pm.response.to.have.status(200));",
+        "const json = pm.response.json();",
+        "pm.test('Поля обновлены', () => { pm.expect(json.status).to.equal('published'); pm.expect(json.publishedAt).to.be.a('string'); });"
+      ] } }],
+      "request": {
+        "description": "Скриншот 7. В ownerSessionId должно быть вставлено значение cookie из Application → Cookies после входа в Swagger.",
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Cookie", "value": "sessionId={{ownerSessionId}}" }
+        ],
+        "body": { "mode": "raw", "raw": "{}" },
+        "url": "{{baseUrl}}/api/insulation-materials/{{materialId}}/publish"
+      },
+      "protocolProfileBehavior": { "disableCookieJar": true }
+    },
+    {
+      "name": "08 — Команда Redis для Terminal",
+      "request": {
+        "description": "Скриншот 8 делается в Terminal, не в Postman. Команда: docker compose exec insulation-redis redis-cli GET \"session:ВСТАВИТЬ_SESSION_ID\". Ответ 1 означает user_id=1. Этот запрос лишь для хранения подсказки и не требует запуска.",
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/insulation-materials"
+      }
+    }
+  ]
+}

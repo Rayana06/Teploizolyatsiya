@@ -1,0 +1,56 @@
+name: teploshchit-lab4
+services:
+  insulation-postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-teploshchit}
+      POSTGRES_USER: ${POSTGRES_USER:-teploshchit}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-teploshchit}
+    ports:
+      - "127.0.0.1:5434:5432"
+    volumes:
+      - insulation-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+  insulation-adminer:
+    image: adminer:5
+    depends_on:
+      insulation-postgres:
+        condition: service_healthy
+    environment:
+      ADMINER_DEFAULT_SERVER: insulation-postgres
+    ports:
+      - "127.0.0.1:8081:8080"
+    restart: unless-stopped
+  insulation-minio:
+    image: ghcr.io/coollabsio/minio:latest
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Create .env first}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Create .env first}
+    ports:
+      - "127.0.0.1:9020:9000"
+      - "127.0.0.1:9021:9001"
+    volumes:
+      - insulation-minio-data:/data
+    restart: unless-stopped
+  insulation-redis:
+    image: redis:7-alpine
+    ports:
+      - "127.0.0.1:6379:6379"
+    volumes:
+      - insulation-redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+volumes:
+  insulation-postgres-data:
+  insulation-minio-data:
+  insulation-redis-data:

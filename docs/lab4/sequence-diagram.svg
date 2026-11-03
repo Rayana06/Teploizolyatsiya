@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="920" viewBox="0 0 1240 920">
+<defs><marker id="arrow" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0,0 L9,3.5 L0,7 Z" fill="#164e63"/></marker><marker id="arrowReply" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0,0 L9,3.5 L0,7 Z" fill="#64748b"/></marker></defs>
+<style>text{font:13px Arial,sans-serif;fill:#102a43}.head{fill:#e0f2fe;stroke:#0369a1;stroke-width:2}.title{font:bold 20px Arial}.lifeline{stroke:#94a3b8;stroke-dasharray:7 5}.request{stroke:#164e63;stroke-width:2}.reply{stroke:#64748b;stroke-width:1.5;stroke-dasharray:7 5}.response{fill:#475569;font-size:12px}</style>
+<rect width="1240" height="920" fill="#fff"/><text x="620" y="27" text-anchor="middle" class="title">Теплощит — полный бизнес-процесс SPA</text>
+<g><rect x="50" y="42" width="240" height="44" rx="5" class="head"/><text x="170" y="69" text-anchor="middle">Фронтенд SPA (создатель)</text><line x1="170" y1="86" x2="170" y2="895" class="lifeline"/></g>
+<g><rect x="470" y="42" width="280" height="44" rx="5" class="head"/><text x="610" y="69" text-anchor="middle">: Домен users (UsersAPI)</text><line x1="610" y1="86" x2="610" y2="895" class="lifeline"/></g>
+<g><rect x="875" y="42" width="390" height="44" rx="5" class="head"/><text x="1070" y="69" text-anchor="middle">: Домен insulation-materials (InsulationMaterialsAPI)</text><line x1="1070" y1="86" x2="1070" y2="895" class="lifeline"/></g>
+<line x1="170" y1="125" x2="610" y2="125" class="request" marker-end="url(#arrow)"/>
+<text x="390" y="116" text-anchor="middle">1: POST /api/users/authenticate(email, password)</text>
+<line x1="610" y1="165" x2="170" y2="165" class="reply" marker-end="url(#arrowReply)"/>
+<text x="390" y="156" text-anchor="middle" class="response">200(user, Set-Cookie: sessionId)</text>
+<line x1="170" y1="219" x2="1070" y2="219" class="request" marker-end="url(#arrow)"/>
+<text x="620" y="210" text-anchor="middle">2: GET /api/insulation-materials(maxThicknessMm=100, insulationType=&quot;Минвата&quot;)</text>
+<line x1="1070" y1="259" x2="170" y2="259" class="reply" marker-end="url(#arrowReply)"/>
+<text x="620" y="250" text-anchor="middle" class="response">200(items[], count)</text>
+<line x1="170" y1="313" x2="1070" y2="313" class="request" marker-end="url(#arrow)"/>
+<text x="620" y="304" text-anchor="middle">3: POST /api/insulation-materials(fields, image, video, Cookie: sessionId)</text>
+<line x1="1070" y1="353" x2="170" y2="353" class="reply" marker-end="url(#arrowReply)"/>
+<text x="620" y="344" text-anchor="middle" class="response">201(draftId, creatorId, status)</text>
+<line x1="170" y1="407" x2="1070" y2="407" class="request" marker-end="url(#arrow)"/>
+<text x="620" y="398" text-anchor="middle">4: GET /api/insulation-materials/draft(Cookie: sessionId)</text>
+<line x1="1070" y1="447" x2="170" y2="447" class="reply" marker-end="url(#arrowReply)"/>
+<text x="620" y="438" text-anchor="middle" class="response">200(draft fields)</text>
+<line x1="170" y1="501" x2="1070" y2="501" class="request" marker-end="url(#arrow)"/>
+<text x="620" y="492" text-anchor="middle">5: PUT /api/insulation-materials/{id}/publish(id, Cookie: sessionId)</text>
+<line x1="1070" y1="541" x2="170" y2="541" class="reply" marker-end="url(#arrowReply)"/>
+<text x="620" y="532" text-anchor="middle" class="response">200(status=published, publishedAt)</text>
+<line x1="170" y1="595" x2="1070" y2="595" class="request" marker-end="url(#arrow)"/>
+<text x="620" y="586" text-anchor="middle">6: GET /api/insulation-materials/feed(без id)</text>
+<line x1="1070" y1="635" x2="170" y2="635" class="reply" marker-end="url(#arrowReply)"/>
+<text x="620" y="626" text-anchor="middle" class="response">200(itemId, liked, likesCount)</text>
+<line x1="170" y1="689" x2="1070" y2="689" class="request" marker-end="url(#arrow)"/>
+<text x="620" y="680" text-anchor="middle">7: GET /api/insulation-materials/feed/{id}?next=true(id, next=true)</text>
+<line x1="1070" y1="729" x2="170" y2="729" class="reply" marker-end="url(#arrowReply)"/>
+<text x="620" y="720" text-anchor="middle" class="response">200(next item)</text>
+<line x1="170" y1="783" x2="1070" y2="783" class="request" marker-end="url(#arrow)"/>
+<text x="620" y="774" text-anchor="middle">8: POST /api/insulation-materials/{id}/like(id, liked=true, Cookie: sessionId)</text>
+<line x1="1070" y1="823" x2="170" y2="823" class="reply" marker-end="url(#arrowReply)"/>
+<text x="620" y="814" text-anchor="middle" class="response">201(liked=true, likesCount)</text></svg>
